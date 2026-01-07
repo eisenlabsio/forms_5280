@@ -189,19 +189,25 @@ async function collectMetadata() {
 async function handleSubmitQuiz(responseSheetId) {
     const quizAnswers = {};
     document.querySelectorAll('#quiz-questions .question-block').forEach((questionBlock, index) => {
-        const questionName = `question-${index}`;
-        const questionType = questionBlock.querySelector(`[name="${questionName}"]`).type;
+        const questionId = questionBlock.getAttribute('data-question-id');
+        const inputElement = questionBlock.querySelector(`[name="question-${index}"]`);
+        // Ensure inputElement exists before proceeding
+        if (!inputElement) {
+            console.warn(`Input element for question-${index} not found. Skipping.`);
+            return;
+        }
+        const questionType = inputElement.type;
 
         if (questionType === 'radio') {
-            const selected = questionBlock.querySelector(`input[name="${questionName}"]:checked`);
-            quizAnswers[questionName] = selected ? selected.value : '';
+            const selected = questionBlock.querySelector(`input[name="question-${index}"]:checked`);
+            quizAnswers[questionId] = selected ? selected.value : '';
         } else if (questionType === 'checkbox') {
-            const selected = Array.from(questionBlock.querySelectorAll(`input[name="${questionName}"]:checked`)).map(cb => cb.value);
-            quizAnswers[questionName] = selected.join(';'); // Use a separator for multiple selections
+            const selected = Array.from(questionBlock.querySelectorAll(`input[name="question-${index}"]:checked`)).map(cb => cb.value);
+            quizAnswers[questionId] = selected.join(';'); // Use a separator for multiple selections
         } else if (questionType === 'textarea') {
-            quizAnswers[questionName] = questionBlock.querySelector(`textarea[name="${questionName}"]`).value;
-        } else if (questionType === 'text') { // For future proofing if text inputs are added directly
-            quizAnswers[questionName] = questionBlock.querySelector(`input[name="${questionName}"]`).value;
+            quizAnswers[questionId] = questionBlock.querySelector(`textarea[name="question-${index}"]`).value;
+        } else if (questionType === 'text') {
+            quizAnswers[questionId] = questionBlock.querySelector(`input[name="question-${index}"]`).value;
         }
     });
 
@@ -262,6 +268,8 @@ function renderQuiz(quizData, responseSheetId) {
     quizData.forEach((question, index) => {
         const questionBlock = document.createElement('div');
         questionBlock.classList.add('question-block');
+        questionBlock.setAttribute('data-question-id', question['Question ID']);
+        questionBlock.setAttribute('data-question-id', question['Question ID']);
 
         const questionText = document.createElement('p');
         questionText.textContent = `${index + 1}. ${question['Question Text']}`;

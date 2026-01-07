@@ -1,0 +1,15 @@
+Key,English,Hebrew,Context/Description
+app_title,Quiz Application,אפליקציית חידונים,Main application title
+header_welcome,Welcome to the Quiz App!,ברוכים הבאים לאפליקציית החידונים!,Welcome message in the header
+quiz_selection_heading,Select a Quiz,בחר חידון,Heading for the quiz selection section
+submit_quiz_button,Submit Quiz,שלח חידון,Text for the quiz submission button
+error_no_sheet_id,No quiz sheet ID provided in the URL.,מזהה גיליון חידון לא סופק ב-URL.,Error message when sheetId is missing
+error_fetching_master_sheet,Error loading quizzes.,שגיאה בטעינת חידונים.,Error message for master sheet fetch
+no_quizzes_available,No quizzes available.,אין חידונים זמינים.,Message when no quizzes are in master sheet
+error_fetching_quiz,Error loading quiz.,שגיאה בטעינת החידון.,Error message for individual quiz fetch
+free_text_placeholder,Your answer here...,תשובתך כאן...,Placeholder for free text questions
+hint_label,Hint,רמז,Label for a question hint
+quiz_submit_success,Quiz submitted successfully!,החידון נשלח בהצלחה!,Success message after quiz submission
+quiz_submit_error,Error submitting quiz:,שגיאה בשליחת החידון:,Error message for quiz submission
+quiz_submit_network_error,Network error during quiz submission.,שגיאת רשת במהלך שליחת החידון.,Network error during submission
+footer_text,© 2026 Quiz Application,© 2026 אפליקציית חידונים,Footer copyright text

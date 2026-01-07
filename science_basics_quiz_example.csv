@@ -1,0 +1,4 @@
+Question ID,Question Text,Question Description,Question Type,Option 1,Option 2,Option 3,Option 4,Hint
+Q1,What is the capital of France?,,single,Paris,London,Berlin,Rome,It's a famous romantic city.
+Q2,Which are primary colors?,Select all that apply.,multi,Red,Green,Blue,Yellow,Think of light.
+Q3,Explain photosynthesis.,In your own words.,free-text,,,,"It involves plants and sunlight."
