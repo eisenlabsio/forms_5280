@@ -1,0 +1,50 @@
+page,element_id,type,value
+,quiz_title,History Challenge
+,quiz_description,Test your knowledge of significant historical events and figures across different eras.
+,response_sheet_id,YOUR_HISTORY_RESPONSE_SHEET_ID_HERE
+
+,ancient_page_def,page_id,ancient_history
+,ancient_page_def,page_title,Ancient Civilizations
+,ancient_page_def,page_description,Questions covering early human history and ancient empires.
+
+ancient_history,H1,question,In which year did the Roman Empire fall?
+ancient_history,H1,question_id,roman_empire_fall_year
+ancient_history,H1,question_type,number
+ancient_history,H1,question_right_answer,476
+ancient_history,H1,question_validation_regex,^\d{3,4}$
+ancient_history,H1,question_is_required,TRUE
+
+ancient_history,H2,question,Who was the first Emperor of China?
+ancient_history,H2,question_id,first_emperor_china
+ancient_history,H2,question_type,text
+ancient_history,H2,question_right_answer,Qin Shi Huang
+ancient_history,H2,question_is_required,TRUE
+
+,modern_page_def,page_id,modern_history
+,modern_page_def,page_title,Modern History
+,modern_page_def,page_description,Questions on major events from the 20th century onwards.
+
+modern_history,W1,question,Which countries were the main Axis powers in WWII?
+modern_history,W1,question_id,ww2_axis_powers
+modern_history,W1,question_type,multi_choice
+modern_history,W1,question_option,Germany
+modern_history,W1,question_option,Italy
+modern_history,W1,question_option,Japan
+modern_history,W1,question_option,France
+modern_history,W1,question_right_answer,Germany;Italy;Japan
+modern_history,W1,question_is_required,TRUE
+
+modern_history,W2,question,When did World War I officially end?
+modern_history,W2,question_id,ww1_end_date
+modern_history,W2,question_type,date
+modern_history,W2,question_right_answer,1918-11-11
+modern_history,W2,question_is_required,TRUE
+
+,feedback_page_def,page_id,feedback
+,feedback_page_def,page_title,Feedback
+,feedback_page_def,page_description,We appreciate your thoughts!
+
+feedback,F1,question,Any comments or suggestions for this quiz?
+feedback,F1,question_id,quiz_feedback
+feedback,F1,question_type,long_text
+feedback,F1,question_is_required,FALSE

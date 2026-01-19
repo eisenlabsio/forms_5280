@@ -1,3 +1,5 @@
-Quiz Title,Quiz Description,GID,Response Sheet ID
-Science Basics,Test your knowledge of basic science.,0,YOUR_SCIENCE_BASICS_RESPONSE_SHEET_ID
-History Challenge,A challenging quiz on world history.,123456789,YOUR_HISTORY_CHALLENGE_RESPONSE_SHEET_ID
+type,value
+title,My Awesome Quizzes Collection
+description,Explore a variety of quizzes on different subjects.
+quiz_sheet_id,YOUR_SCIENCE_BASICS_QUIZ_SHEET_ID_HERE
+quiz_sheet_id,YOUR_HISTORY_CHALLENGE_QUIZ_SHEET_ID_HERE

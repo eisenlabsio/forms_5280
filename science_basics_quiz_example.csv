@@ -1,4 +1,61 @@
-Question ID,Question Text,Question Description,Question Type,Option 1,Option 2,Option 3,Option 4,Hint
-Q1,What is the capital of France?,,single,Paris,London,Berlin,Rome,It's a famous romantic city.
-Q2,Which are primary colors?,Select all that apply.,multi,Red,Green,Blue,Yellow,Think of light.
-Q3,Explain photosynthesis.,In your own words.,free-text,,,,"It involves plants and sunlight."
+page,element_id,type,value
+,quiz_title,Science Basics Quiz
+,quiz_description,Test your knowledge of fundamental science across multiple sections.
+,response_sheet_id,YOUR_SCIENCE_BASICS_RESPONSE_SHEET_ID_HERE
+
+,intro_page_def,page_id,intro
+,intro_page_def,page_title,Introduction to Science
+,intro_page_def,page_description,Welcome to the Science Basics Quiz. Please read the instructions carefully before proceeding.
+
+intro,welcome_text,info_text,This first section covers general science knowledge.
+intro,Q1,question,What is the chemical symbol for water?
+intro,Q1,question_id,water_symbol_q1
+intro,Q1,question_type,text
+intro,Q1,question_right_answer,H2O
+intro,Q1,question_validation_regex,^[Hh]2[Oo]$
+intro,Q1,question_is_required,TRUE
+
+intro,Q2,question,Which planet is known as the Red Planet?
+intro,Q2,question_id,red_planet_q2
+intro,Q2,question_type,choice
+intro,Q2,question_option,Earth
+intro,Q2,question_option,Mars
+intro,Q2,question_option,Jupiter
+intro,Q2,question_right_answer,Mars
+intro,Q2,question_is_required,TRUE
+intro,Q2,question_hint,Think about its color.
+
+,math_page_def,page_id,math
+,math_page_def,page_title,Mathematics Section
+,math_page_def,page_description,A few questions to test your basic math skills.
+
+math,math_intro,info_text,This section requires numerical answers.
+math,Q3,question,What is 15 multiplied by 3?
+math,Q3,question_id,math_multiply_q3
+math,Q3,question_type,number
+math,Q3,question_right_answer,45
+math,Q3,question_is_required,TRUE
+
+math,Q4,question,Select all even numbers.
+math,Q4,question_id,even_numbers_q4
+math,Q4,question_type,multi_choice
+math,Q4,question_option,2
+math,Q4,question_option,3
+math,Q4,question_option,4
+math,Q4,question_option,5
+math,Q4,question_right_answer,2;4
+math,Q4,question_is_required,TRUE
+
+,final_page_def,page_id,final_summary
+,final_page_def,page_title,Summary and Confirmation
+,final_page_def,page_description,Review your answers and sign to confirm your participation.
+
+final_summary,F1,question,Enter today's date.
+final_summary,F1,question_id,current_date_q5
+final_summary,F1,question_type,date
+final_summary,F1,question_is_required,FALSE
+
+final_summary,F2,question,Sign here to confirm your participation.
+final_summary,F2,question_id,signature_q6
+final_summary,F2,question_type,signature
+final_summary,F2,question_is_required,TRUE

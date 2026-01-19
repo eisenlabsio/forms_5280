@@ -1,0 +1,195 @@
+import Papa from 'papaparse';
+
+const GOOGLE_SHEETS_BASE_URL = 'https://docs.google.com/spreadsheets/d/';
+
+// Helper function to parse CSV text into an array of objects using PapaParse
+async function parseCSV(csvText) {
+    return new Promise((resolve, reject) => {
+        Papa.parse(csvText, {
+            header: true,
+            skipEmptyLines: true,
+            complete: (results) => {
+                resolve(results.data);
+            },
+            error: (error) => {
+                reject(error);
+            }
+        });
+    });
+}
+
+// Function to fetch content from the Content Google Sheet
+async function fetchContentSheet(contentSheetId) {
+    if (!contentSheetId || contentSheetId === 'YOUR_CONTENT_SHEET_ID_HERE') {
+        console.error('Content Sheet ID is not set.');
+        return {};
+    }
+    try {
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${contentSheetId}/gviz/tq?tqx=out:csv&gid=0`); // Assuming content is on gid=0
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvText = await response.text();
+        const parsedData = await parseCSV(csvText);
+
+        const contentData = {};
+        parsedData.forEach(item => {
+            if (item.Key && item.Hebrew) { // Assuming 'Key' and 'Hebrew' columns exist
+                contentData[item.Key] = item.Hebrew;
+            }
+        });
+        return contentData;
+    } catch (error) {
+        console.error('Error fetching content sheet:', error);
+        return {};
+    }
+}
+
+// Function to fetch master sheet data
+async function fetchMasterSheet(sheetId) {
+    if (!sheetId) {
+        console.error('Master Sheet ID is not provided.');
+        return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', individualQuizSheetIds: [] };
+    }
+    try {
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${sheetId}/gviz/tq?tqx=out:csv&gid=0`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvText = await response.text();
+        const masterSheetData = await parseCSV(csvText);
+
+        let masterQuizTitle = 'Quiz Selection'; // Default title
+        let masterQuizDescription = 'Select a quiz from the list below.'; // Default description
+        const individualQuizSheetIds = [];
+
+        masterSheetData.forEach(row => {
+            // New parsing logic for type,value structure
+            if (row.type === 'title') {
+                masterQuizTitle = row.value;
+            } else if (row.type === 'description') {
+                masterQuizDescription = row.value;
+            } else if (row.type === 'quiz_sheet_id') {
+                // Assuming the value directly corresponds to the sheet ID for individual quizzes
+                individualQuizSheetIds.push({ gid: row.value, title: '', description: '', responseSheetId: '' }); // Populate other fields if needed from a different source or default
+            }
+        });
+        return { masterQuizTitle, masterQuizDescription, individualQuizSheetIds };
+    } catch (error) {
+        console.error('Error fetching master sheet:', error);
+        return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', individualQuizSheetIds: [] };
+    }
+}
+
+// Function to fetch individual quiz data
+async function fetchQuiz(individualQuizSheetId) {
+    if (!individualQuizSheetId) {
+        console.error('Individual Quiz Sheet ID is not provided.');
+        return { quizTitle: 'Error', quizDescription: 'No quiz ID provided.', quizData: [] };
+    }
+    try {
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${individualQuizSheetId}/gviz/tq?tqx=out:csv&gid=0`); // Always fetch from GID 0 for structured quiz definition
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvText = await response.text();
+        const quizData = await parseCSV(csvText);
+
+        let quizTitle = 'Untitled Quiz';
+        let quizDescription = 'No description available.';
+        let responseSheetId = '';
+
+        const pages = [];
+        let currentPage = null;
+        let currentQuestionProps = {};
+
+        quizData.forEach(row => {
+            const { page, element_id, type, value } = row;
+
+            if (type === 'quiz_title') {
+                quizTitle = value;
+            } else if (type === 'quiz_description') {
+                quizDescription = value;
+            } else if (type === 'response_sheet_id') {
+                responseSheetId = value;
+            } else if (element_id && element_id.endsWith('_page_def')) { // New page definition
+                // Finalize previous page if exists
+                if (currentPage) {
+                    pages.push(currentPage);
+                }
+                currentPage = {
+                    page_id: '',
+                    page_title: '',
+                    page_description: '',
+                    elements: []
+                };
+            } else if (type === 'page_id' && currentPage && element_id.endsWith('_page_def')) {
+                currentPage.page_id = value;
+            } else if (type === 'page_title' && currentPage && element_id.endsWith('_page_def')) {
+                currentPage.page_title = value;
+            } else if (type === 'page_description' && currentPage && element_id.endsWith('_page_def')) {
+                currentPage.page_description = value;
+            } else if (page && currentPage && currentPage.page_id === page) { // Element belongs to current page
+                if (type === 'question' || type.startsWith('question_')) {
+                    // Logic to accumulate question properties
+                    if (type === 'question' && currentQuestionProps.element_id && currentQuestionProps.element_id !== element_id) {
+                        currentPage.elements.push({ ...currentQuestionProps });
+                        currentQuestionProps = {}; // Reset
+                    }
+                    if (element_id && !currentQuestionProps.element_id) {
+                        currentQuestionProps.element_id = element_id;
+                        currentQuestionProps.options = [];
+                        currentQuestionProps.type = 'question'; // Explicitly set type for questions
+                    }
+
+                    if (currentQuestionProps.element_id === element_id) {
+                        if (type === 'question') {
+                            currentQuestionProps.questionText = value;
+                        } else if (type === 'question_id') {
+                            currentQuestionProps.questionId = value;
+                        } else if (type === 'question_type') {
+                            currentQuestionProps.questionType = value;
+                        } else if (type === 'question_option') {
+                            currentQuestionProps.options.push(value);
+                        } else if (type === 'question_hint') {
+                            currentQuestionProps.questionHint = value;
+                        } else if (type === 'question_error_message') {
+                            currentQuestionProps.errorMessage = value;
+                        } else if (type === 'question_right_answer') {
+                            currentQuestionProps.rightAnswer = value;
+                        } else if (type === 'question_validation_regex') {
+                            currentQuestionProps.validationRegex = value;
+                        } else if (type === 'question_is_required') {
+                            currentQuestionProps.isRequired = (value.toLowerCase() === 'true');
+                        }
+                    }
+                } else {
+                    // Handle other page-level elements (like info_text)
+                    if (currentQuestionProps.element_id) { // Push any pending question before a new element
+                        currentPage.elements.push({ ...currentQuestionProps });
+                        currentQuestionProps = {};
+                    }
+                    currentPage.elements.push({ type: type, value: value, element_id: element_id, page: page });
+                }
+            }
+        });
+
+        // Push the last accumulated question if any
+        if (currentQuestionProps.element_id) {
+            if (currentPage) {
+                currentPage.elements.push({ ...currentQuestionProps });
+            }
+        }
+        // Push the last page if exists
+        if (currentPage) {
+            pages.push(currentPage);
+        }
+        
+        return { quizTitle, quizDescription, responseSheetId, quizData: pages }; // quizData is now pages
+    } catch (error) {
+        console.error('Error fetching quiz:', error);
+        return { quizTitle: 'Error', quizDescription: 'Failed to load quiz.', responseSheetId: '', quizData: [] };
+    }
+}
+
+export { parseCSV, fetchContentSheet, fetchMasterSheet, fetchQuiz };

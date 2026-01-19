@@ -1,0 +1,21 @@
+The `response_sheet_template.csv` has been created. This file contains the recommended headers for your Google Sheet where quiz responses will be recorded.
+
+**Instructions for setting up Response Sheets:**
+
+1.  **Create a new Google Sheet for responses:**
+    *   Open Google Sheets (sheets.new).
+    *   Name this sheet appropriately (e.g., "Science Basics Responses").
+    *   **Get the Sheet ID**: Copy the Sheet ID from the URL of this new empty sheet. This ID will be used in your individual quiz definition CSVs (e.g., `science_basics_quiz_example.csv` under the `type: response_sheet_id` row).
+
+2.  **Import the `response_sheet_template.csv`:**
+    *   In your newly created Google Sheet (e.g., "Science Basics Responses"), go to `File > Import > Upload`.
+    *   Upload the `response_sheet_template.csv` file.
+    *   For "Import location," select "Replace spreadsheet" to ensure the headers are correctly set as the first row. Click "Import data".
+
+3.  **Repeat for each quiz:**
+    *   If you have multiple quizzes that will save responses to *different* sheets, repeat steps 1 and 2 for each response sheet.
+    *   For instance, create another sheet named "History Challenge Responses", get its ID, and import `response_sheet_template.csv` into it.
+
+**Important Note:** The `response_sheet_template.csv` includes headers for ALL possible questions from both example quizzes, plus standard metadata. You can use this same template for all your response sheets. The backend Apps Script is designed to dynamically map answers to the correct columns based on the `question_id`s present in the sheet. Any extra columns in the template not relevant to a specific quiz will simply remain empty for that quiz's submissions.
+
+The task of building the CSV for the response sheet and providing instructions is complete.
