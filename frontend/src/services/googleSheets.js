@@ -10,8 +10,12 @@ async function parseCSV(csvText) {
             header: true,
             skipEmptyLines: true,
             complete: (results) => {
-                logger.log('CSV parsed successfully.', results.data);
-                resolve(results.data);
+                // Filter out rows where all values are effectively empty
+                const filteredData = results.data.filter(row => {
+                    return Object.values(row).some(value => value !== null && value !== '' && value !== undefined);
+                });
+                logger.log('CSV parsed and filtered successfully.', filteredData); // Log filtered data
+                resolve(filteredData);
             },
             error: (error) => {
                 logger.error('CSV parsing error:', error);
