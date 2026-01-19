@@ -204,6 +204,7 @@ async function fetchQuiz(individualQuizSheetId) {
         if (currentPage) {
             pages.push(currentPage);
         }
+        logger.log('Final pages array constructed in fetchQuiz:', pages); // <-- Add this line
         logger.log('Parsed individual quiz data:', { quizTitle, quizDescription, responseSheetId, quizData: pages });
         return { quizTitle, quizDescription, responseSheetId, quizData: pages }; // quizData is now pages
     } catch (error) {
