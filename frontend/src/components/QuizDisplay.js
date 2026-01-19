@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchQuiz } from '../services/googleSheets';
 import { submitQuiz } from '../services/gasWebApp';
 import QuizElementMap from './QuizElementMap';
+import Page from './Page';
 
 function QuizDisplay({ individualQuizSheetId, onBack }) {
     const [quizData, setQuizData] = useState(null);
@@ -124,7 +125,7 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
     const currentPage = quizData[currentPageIndex];
     const isLastPage = currentPageIndex === quizData.length - 1;
 
-    let questionNumberCounter = 0;
+
 
     return (
         <div id="quiz-display" className="quiz-display">
@@ -132,33 +133,11 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
             <h2 id="quiz-title">{currentQuizTitle}</h2>
             <p id="quiz-description">{currentQuizDescription}</p>
 
-            <h3>{currentPage.page_title}</h3>
-            {currentPage.page_description && <p>{currentPage.page_description}</p>}
-
-            <div id="quiz-questions">
-                {currentPage.elements.map((item, index) => {
-                    const ElementComponent = QuizElementMap[item.type];
-                    if (item.type === 'section_title') {
-                        return <h4 key={index} className="section-title">{item.value}</h4>;
-                    } else if (ElementComponent) {
-                        const elementProps = {
-                            key: item.element_id || index, // Use element_id if available, otherwise index
-                            element: item, // Pass the entire item as 'element' prop
-                        };
-
-                        if (item.type === 'question') {
-                            questionNumberCounter++;
-                            elementProps.question = item;
-                            elementProps.questionNumber = questionNumberCounter;
-                            elementProps.onAnswerChange = handleAnswerChange;
-                            elementProps.currentAnswer = userAnswers[item.element_id];
-                        }
-
-                        return <ElementComponent {...elementProps} />;
-                    }
-                    return null;
-                })}
-            </div>
+            <Page
+                page={currentPage}
+                onAnswerChange={handleAnswerChange}
+                userAnswers={userAnswers}
+            />
 
             <div className="quiz-navigation">
                 {currentPageIndex > 0 && (
