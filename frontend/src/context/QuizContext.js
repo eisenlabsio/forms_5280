@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { fetchContentSheet } from '../services/googleSheets';
+import logger from '../utils/logger'; // Import the logger
 
 const QuizContext = createContext();
 
@@ -12,12 +13,14 @@ export const QuizProvider = ({ children }) => {
 
     useEffect(() => {
         const loadContent = async () => {
+            logger.log('Loading content data with ID:', contentSheetId);
             try {
                 setLoadingContent(true);
                 const data = await fetchContentSheet(contentSheetId);
                 setContentData(data);
+                logger.log('Content data loaded:', data);
             } catch (err) {
-                console.error('Failed to load content data:', err);
+                logger.error('Failed to load content data:', err);
                 setContentError('Failed to load content data.');
             } finally {
                 setLoadingContent(false);

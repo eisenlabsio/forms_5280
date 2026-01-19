@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMasterSheet, fetchQuiz } from '../services/googleSheets';
+import logger from '../utils/logger'; // Import the logger
 
 function QuizSelection({ onQuizSelect }) {
     const [masterQuizTitle, setMasterQuizTitle] = useState('Quiz Selection');
@@ -11,9 +12,11 @@ function QuizSelection({ onQuizSelect }) {
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search);
         const masterSheetId = queryParams.get('sheetId');
+        logger.log('Master sheet ID from URL:', masterSheetId);
 
         if (!masterSheetId) {
             setError('No sheetId parameter found in URL. Please provide a master sheet ID.');
+            logger.error('No sheetId parameter found in URL.');
             setLoading(false);
             return;
         }
@@ -24,11 +27,14 @@ function QuizSelection({ onQuizSelect }) {
                 const { masterQuizTitle, masterQuizDescription, individualQuizSheetIds } = await fetchMasterSheet(masterSheetId);
                 setMasterQuizTitle(masterQuizTitle);
                 setMasterQuizDescription(masterQuizDescription);
+                logger.log('Fetched master quiz data:', { masterQuizTitle, masterQuizDescription, individualQuizSheetIds });
 
                 // Fetch metadata for each individual quiz sheet
                 const quizMetadataPromises = individualQuizSheetIds.map(async (quizInfo) => {
+                    logger.log('Fetching metadata for individual quiz:', quizInfo.gid);
                     try {
-                        const { quizTitle, quizDescription, responseSheetId, quizData } = await fetchQuiz(quizInfo.gid);
+                        const { quizTitle, quizDescription, responseSheetId } = await fetchQuiz(quizInfo.gid);
+                        logger.log(`Metadata fetched for quiz ${quizInfo.gid}:`, { quizTitle, quizDescription, responseSheetId });
                         return {
                             individualQuizSheetId: quizInfo.gid,
                             quizTitle: quizTitle,
@@ -36,7 +42,7 @@ function QuizSelection({ onQuizSelect }) {
                             responseSheetId: responseSheetId
                         };
                     } catch (err) {
-                        console.error(`Error fetching metadata for quiz sheet ID ${quizInfo.gid}:`, err);
+                        logger.error(`Error fetching metadata for quiz sheet ID ${quizInfo.gid}:`, err);
                         return null; // Return null for quizzes that failed to fetch metadata
                     }
                 });
@@ -44,8 +50,9 @@ function QuizSelection({ onQuizSelect }) {
                 const allQuizMetadata = await Promise.all(quizMetadataPromises);
                 const validQuizzes = allQuizMetadata.filter(metadata => metadata !== null);
                 setAvailableQuizzes(validQuizzes);
+                logger.log('Available quizzes:', validQuizzes);
             } catch (err) {
-                console.error('Error loading master sheet:', err);
+                logger.error('Error loading master sheet:', err);
                 setError('Error loading quizzes. Please check the sheet ID and network connection.');
             } finally {
                 setLoading(false);

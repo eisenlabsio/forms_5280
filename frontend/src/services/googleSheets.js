@@ -1,4 +1,5 @@
 import Papa from 'papaparse';
+import logger from '../utils/logger';
 
 const GOOGLE_SHEETS_BASE_URL = 'https://docs.google.com/spreadsheets/d/';
 
@@ -9,9 +10,11 @@ async function parseCSV(csvText) {
             header: true,
             skipEmptyLines: true,
             complete: (results) => {
+                logger.log('CSV parsed successfully.', results.data);
                 resolve(results.data);
             },
             error: (error) => {
+                logger.error('CSV parsing error:', error);
                 reject(error);
             }
         });
@@ -20,17 +23,20 @@ async function parseCSV(csvText) {
 
 // Function to fetch content from the Content Google Sheet
 async function fetchContentSheet(contentSheetId) {
+    logger.log('Attempting to fetch content sheet with ID:', contentSheetId);
     if (!contentSheetId || contentSheetId === 'YOUR_CONTENT_SHEET_ID_HERE') {
-        console.error('Content Sheet ID is not set.');
+        logger.error('Content Sheet ID is not set.');
         return {};
     }
     try {
         const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${contentSheetId}/gviz/tq?tqx=out:csv&gid=0`); // Assuming content is on gid=0
         if (!response.ok) {
+            logger.error(`HTTP error! status: ${response.status} when fetching content sheet ID: ${contentSheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const csvText = await response.text();
         const parsedData = await parseCSV(csvText);
+        logger.log('Content sheet fetched and parsed successfully.', parsedData);
 
         const contentData = {};
         parsedData.forEach(item => {
@@ -40,24 +46,27 @@ async function fetchContentSheet(contentSheetId) {
         });
         return contentData;
     } catch (error) {
-        console.error('Error fetching content sheet:', error);
+        logger.error('Error fetching content sheet:', error);
         return {};
     }
 }
 
 // Function to fetch master sheet data
 async function fetchMasterSheet(sheetId) {
+    logger.log('Attempting to fetch master sheet with ID:', sheetId);
     if (!sheetId) {
-        console.error('Master Sheet ID is not provided.');
+        logger.error('Master Sheet ID is not provided.');
         return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', individualQuizSheetIds: [] };
     }
     try {
         const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${sheetId}/gviz/tq?tqx=out:csv&gid=0`);
         if (!response.ok) {
+            logger.error(`HTTP error! status: ${response.status} when fetching master sheet ID: ${sheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const csvText = await response.text();
         const masterSheetData = await parseCSV(csvText);
+        logger.log('Master sheet fetched and parsed successfully.', masterSheetData);
 
         let masterQuizTitle = 'Quiz Selection'; // Default title
         let masterQuizDescription = 'Select a quiz from the list below.'; // Default description
@@ -74,27 +83,31 @@ async function fetchMasterSheet(sheetId) {
                 individualQuizSheetIds.push({ gid: row.value, title: '', description: '', responseSheetId: '' }); // Populate other fields if needed from a different source or default
             }
         });
+        logger.log('Parsed master quiz data:', { masterQuizTitle, masterQuizDescription, individualQuizSheetIds });
         return { masterQuizTitle, masterQuizDescription, individualQuizSheetIds };
     } catch (error) {
-        console.error('Error fetching master sheet:', error);
+        logger.error('Error fetching master sheet:', error);
         return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', individualQuizSheetIds: [] };
     }
 }
 
 // Function to fetch individual quiz data
 async function fetchQuiz(individualQuizSheetId) {
+    logger.log('Attempting to fetch individual quiz sheet with ID:', individualQuizSheetId);
     if (!individualQuizSheetId) {
-        console.error('Individual Quiz Sheet ID is not provided.');
+        logger.error('Individual Quiz Sheet ID is not provided.');
         return { quizTitle: 'Error', quizDescription: 'No quiz ID provided.', quizData: [] };
     }
     try {
         const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${individualQuizSheetId}/gviz/tq?tqx=out:csv&gid=0`); // Always fetch from GID 0 for structured quiz definition
         if (!response.ok) {
+            logger.error(`HTTP error! status: ${response.status} when fetching quiz sheet ID: ${individualQuizSheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const csvText = await response.text();
         const quizData = await parseCSV(csvText);
-
+        logger.log('Individual quiz sheet fetched and parsed successfully.', quizData);
+        
         let quizTitle = 'Untitled Quiz';
         let quizDescription = 'No description available.';
         let responseSheetId = '';
@@ -155,7 +168,8 @@ async function fetchQuiz(individualQuizSheetId) {
                             currentQuestionProps.questionHint = value;
                         } else if (type === 'question_error_message') {
                             currentQuestionProps.errorMessage = value;
-                        } else if (type === 'question_right_answer') {
+                        }
+                        else if (type === 'question_right_answer') {
                             currentQuestionProps.rightAnswer = value;
                         } else if (type === 'question_validation_regex') {
                             currentQuestionProps.validationRegex = value;
@@ -184,10 +198,10 @@ async function fetchQuiz(individualQuizSheetId) {
         if (currentPage) {
             pages.push(currentPage);
         }
-        
+        logger.log('Parsed individual quiz data:', { quizTitle, quizDescription, responseSheetId, quizData: pages });
         return { quizTitle, quizDescription, responseSheetId, quizData: pages }; // quizData is now pages
     } catch (error) {
-        console.error('Error fetching quiz:', error);
+        logger.error('Error fetching quiz:', error);
         return { quizTitle: 'Error', quizDescription: 'Failed to load quiz.', responseSheetId: '', quizData: [] };
     }
 }

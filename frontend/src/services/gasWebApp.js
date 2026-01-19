@@ -1,3 +1,5 @@
+import logger from '../utils/logger'; // Import the logger
+
 // Function to collect metadata
 async function collectMetadata() {
     const metadata = {
@@ -20,7 +22,7 @@ async function collectMetadata() {
                     resolve();
                 },
                 (error) => {
-                    console.warn('Geolocation error:', error.message);
+                    logger.warn('Geolocation error:', error.message);
                     if (error.code === error.PERMISSION_DENIED) {
                         metadata.locationStatus = 'denied';
                     } else if (error.code === error.POSITION_UNAVAILABLE) {
@@ -38,7 +40,7 @@ async function collectMetadata() {
             );
         });
     } else {
-        console.warn('Geolocation not supported by this browser.');
+        logger.warn('Geolocation not supported by this browser.');
         metadata.locationStatus = 'not_supported';
     }
 
@@ -50,6 +52,7 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
     const gasWebAppLink = process.env.REACT_APP_GAS_WEB_APP_URL;
 
     if (!gasWebAppLink || gasWebAppLink === 'YOUR_GAS_WEB_APP_URL_HERE') {
+        logger.error('GAS Web App URL is not configured. Please set REACT_APP_GAS_WEB_APP_URL in your .env file.');
         throw new Error('GAS Web App URL is not configured. Please set REACT_APP_GAS_WEB_APP_URL in your .env file.');
     }
 
@@ -62,7 +65,7 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
         metadata: metadata
     };
 
-    console.log('Submitting Payload:', payload);
+    logger.log('Sending quiz submission payload:', payload);
 
     try {
         const response = await fetch(gasWebAppLink, {
@@ -75,10 +78,10 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
         });
 
         const result = await response.json();
-        console.log('Submission Result:', result);
+        logger.log('Quiz submission response:', result);
         return result;
     } catch (error) {
-        console.error('Error during quiz submission:', error);
+        logger.error('Error submitting quiz:', error);
         throw new Error('Network error during quiz submission.');
     }
 }
