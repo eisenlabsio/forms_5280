@@ -1,0 +1,23 @@
+"page","element_id","type","value"
+,"quiz_title","History Challenge (Simple)"
+,"quiz_description","A simple history quiz."
+,"response_sheet_id","YOUR_QUIZ1_RESPONSE_SHEET_ID_HERE"
+
+,"page_def","page_id","history_page"
+,"page_def","page_title","Simple History"
+,"page_def","page_description","Basic questions about history."
+
+"history_page","Q1","question","What is the capital of France?"
+"history_page","Q1","question_id","q1_capital_france"
+"history_page","Q1","question_type","text"
+"history_page","Q1","question_right_answer","Paris"
+"history_page","Q1","question_is_required","TRUE"
+
+"history_page","Q2","question","Who painted the Mona Lisa?"
+"history_page","Q2","question_id","q2_mona_lisa"
+"history_page","Q2","question_type","choice"
+"history_page","Q2","question_option","Leonardo da Vinci"
+"history_page","Q2","question_option","Pablo Picasso"
+"history_page","Q2","question_option","Vincent van Gogh"
+"history_page","Q2","question_right_answer","Leonardo da Vinci"
+"history_page","Q2","question_is_required","TRUE"

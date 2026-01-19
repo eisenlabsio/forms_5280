@@ -1,0 +1,23 @@
+"page","element_id","type","value"
+,"quiz_title","Science Basics (Simple)"
+,"quiz_description","A simple science quiz."
+,"response_sheet_id","YOUR_QUIZ2_RESPONSE_SHEET_ID_HERE"
+
+,"page_def","page_id","science_page"
+,"page_def","page_title","Basic Science"
+,"page_def","page_description","Fundamental questions about science."
+
+"science_page","S1","question","What is the chemical symbol for water?"
+"science_page","S1","question_id","s1_water_symbol"
+"science_page","S1","question_type","text"
+"science_page","S1","question_right_answer","H2O"
+"science_page","S1","question_is_required","TRUE"
+
+"science_page","S2","question","What planet is known as the Red Planet?"
+"science_page","S2","question_id","s2_red_planet"
+"science_page","S2","question_type","choice"
+"science_page","S2","question_option","Mars"
+"science_page","S2","question_option","Jupiter"
+"science_page","S2","question_option","Venus"
+"science_page","S2","question_right_answer","Mars"
+"science_page","S2","question_is_required","TRUE"

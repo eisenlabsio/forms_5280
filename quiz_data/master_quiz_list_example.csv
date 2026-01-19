@@ -1,5 +1,5 @@
-type,value
-title,My Awesome Quizzes Collection
-description,Explore a variety of quizzes on different subjects.
-quiz_sheet_id,YOUR_SCIENCE_BASICS_QUIZ_SHEET_ID_HERE
-quiz_sheet_id,YOUR_HISTORY_CHALLENGE_QUIZ_SHEET_ID_HERE
+"type","value"
+"title","My Awesome Quizzes Collection"
+"description","Explore a variety of quizzes on different subjects."
+"quiz_sheet_id","YOUR_SCIENCE_BASICS_QUIZ_SHEET_ID_HERE"
+"quiz_sheet_id","YOUR_HISTORY_CHALLENGE_QUIZ_SHEET_ID_HERE"
