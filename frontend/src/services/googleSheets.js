@@ -29,7 +29,7 @@ async function fetchContentSheet(contentSheetId) {
         return {};
     }
     try {
-        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${contentSheetId}/export?format=csv&gid=0`); // Assuming content is on gid=0
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${contentSheetId}/export?format=csv`); // Assuming content is on gid=0
         if (!response.ok) {
             logger.error(`HTTP error! status: ${response.status} when fetching content sheet ID: ${contentSheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,7 +59,7 @@ async function fetchMasterSheet(sheetId) {
         return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', individualQuizSheetIds: [] };
     }
     try {
-        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${sheetId}/export?format=csv&gid=0`);
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${sheetId}/export?format=csv`);
         if (!response.ok) {
             logger.error(`HTTP error! status: ${response.status} when fetching master sheet ID: ${sheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -99,7 +99,7 @@ async function fetchQuiz(individualQuizSheetId) {
         return { quizTitle: 'Error', quizDescription: 'No quiz ID provided.', quizData: [] };
     }
     try {
-        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${individualQuizSheetId}/export?format=csv&gid=0`); // Always fetch from GID 0 for structured quiz definition
+        const response = await fetch(`${GOOGLE_SHEETS_BASE_URL}${individualQuizSheetId}/export?format=csv`); // Always fetch from GID 0 for structured quiz definition
         if (!response.ok) {
             logger.error(`HTTP error! status: ${response.status} when fetching quiz sheet ID: ${individualQuizSheetId}`);
             throw new Error(`HTTP error! status: ${response.status}`);
