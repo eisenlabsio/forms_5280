@@ -129,23 +129,25 @@ async function fetchQuiz(individualQuizSheetId) {
                 quizDescription = row.type;
             } else if (row.element_id === 'response_sheet_id') {
                 responseSheetId = row.type;
-            } else if (element_id && element_id.endsWith('_page_def')) { // New page definition
-                // Finalize previous page if exists
-                if (currentPage) {
+            } else if (element_id && element_id.endsWith('_page_def')) { // This identifies a row belonging to a page definition
+                // If it's the *start* of a new page definition (i.e., type is 'page_id')
+                // OR if currentPage is null (first page)
+                // then finalize the previous page and start a new one.
+                if (type === 'page_id' && currentPage) {
                     pages.push(currentPage);
+                    currentPage = { page_id: '', page_title: '', page_description: '', elements: [] };
+                } else if (!currentPage) { // Initialize first page
+                    currentPage = { page_id: '', page_title: '', page_description: '', elements: [] };
                 }
-                currentPage = {
-                    page_id: '',
-                    page_title: '',
-                    page_description: '',
-                    elements: []
-                };
-            } else if (type === 'page_id' && currentPage && element_id.endsWith('_page_def')) {
-                currentPage.page_id = value;
-            } else if (type === 'page_title' && currentPage && element_id.endsWith('_page_def')) {
-                currentPage.page_title = value;
-            } else if (type === 'page_description' && currentPage && element_id.endsWith('_page_def')) {
-                currentPage.page_description = value;
+
+                // Now, assign the page properties based on the 'type'
+                if (type === 'page_id') {
+                    currentPage.page_id = value;
+                } else if (type === 'page_title') {
+                    currentPage.page_title = value;
+                } else if (type === 'page_description') {
+                    currentPage.page_description = value;
+                }
             } else if (page && currentPage && currentPage.page_id === page) { // Element belongs to current page
                 if (type === 'question' || type.startsWith('question_')) {
                     // Logic to accumulate question properties
