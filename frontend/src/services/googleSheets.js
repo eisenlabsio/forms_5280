@@ -123,12 +123,12 @@ async function fetchQuiz(individualQuizSheetId) {
         quizData.forEach(row => {
             const { page, element_id, type, value } = row;
 
-            if (type === 'quiz_title') {
-                quizTitle = value;
-            } else if (type === 'quiz_description') {
-                quizDescription = value;
-            } else if (type === 'response_sheet_id') {
-                responseSheetId = value;
+            if (row.element_id === 'quiz_title') {
+                quizTitle = row.type;
+            } else if (row.element_id === 'quiz_description') {
+                quizDescription = row.type;
+            } else if (row.element_id === 'response_sheet_id') {
+                responseSheetId = row.type;
             } else if (element_id && element_id.endsWith('_page_def')) { // New page definition
                 // Finalize previous page if exists
                 if (currentPage) {
