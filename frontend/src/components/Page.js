@@ -1,8 +1,12 @@
 import React from 'react';
 import QuizElementMap from './QuizElementMap';
+import logger from '../utils/logger'; // Import the logger
 
 function Page({ page, onAnswerChange, userAnswers }) {
     let questionNumberCounter = 0; // Reset question numbering for each page
+
+    logger.log('Page component received page prop:', page);
+    logger.log('Page elements to render:', page.elements);
 
     return (
         <div className="quiz-page" id={`page-${page.page_id}`}>
@@ -11,7 +15,10 @@ function Page({ page, onAnswerChange, userAnswers }) {
 
             <div className="page-elements">
                 {page.elements.map((item, index) => {
+                    logger.log(`Page: Rendering item with type "${item.type}" and element_id "${item.element_id}".`);
                     const ElementComponent = QuizElementMap[item.type];
+                    logger.log(`Page: ElementComponent for type "${item.type}":`, ElementComponent ? 'Found' : 'Not Found');
+
                     if (item.type === 'section_title') {
                         return <h4 key={index} className="section-title">{item.value}</h4>;
                     } else if (ElementComponent) {
