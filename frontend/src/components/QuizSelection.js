@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchMasterSheet } from '../services/googleSheets';
 import logger from '../utils/logger';
 
-function QuizSelection({ onQuizSelect }) {
+function QuizSelection({ onQuizSelect, onMasterConfig }) {
     const [masterQuizTitle, setMasterQuizTitle] = useState('Quiz Selection');
     const [masterQuizDescription, setMasterQuizDescription] = useState('Select a quiz from the list below.');
     const [availableQuizzes, setAvailableQuizzes] = useState([]);
@@ -30,6 +30,9 @@ function QuizSelection({ onQuizSelect }) {
                 setMasterQuizDescription(masterQuizDescription);
                 setMasterDirection(masterDirection === 'rtl' ? 'rtl' : 'ltr');
                 setAvailableQuizzes(availableQuizzes);
+                if (typeof onMasterConfig === 'function') {
+                    onMasterConfig({ title: masterQuizTitle, direction: masterDirection });
+                }
                 logger.log('Available quizzes:', availableQuizzes);
             } catch (err) {
                 logger.error('Error loading master sheet:', err);

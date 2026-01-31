@@ -208,28 +208,38 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
 
     return (
         <div id="quiz-display" className="quiz-display" dir={quiz.direction || 'ltr'}>
-            <button onClick={onBack} className="back-button">← Back to Quiz Selection</button>
-            <h2 id="quiz-title">{quiz.title}</h2>
-            <p id="quiz-description">{quiz.description}</p>
+            <header className="quiz-header">
+                <div className="quiz-header-title">
+                    <h2 id="quiz-title">{quiz.title}</h2>
+                </div>
+            </header>
 
-            <Page
-                page={currentPage}
-                onAnswerChange={handleAnswerChange}
-                userAnswers={userAnswers}
-                validationErrors={validationErrors} // Pass down validation errors
-            />
+            <main className="quiz-content">
+                <p id="quiz-description">{quiz.description}</p>
 
-            <div className="quiz-navigation">
-                {currentPageIndex > 0 && (
-                    <button onClick={handlePrevPage} className="prev-button">Previous</button>
-                )}
-                {!isLastPage && (
-                    <button onClick={handleNextPage} className="next-button">Next</button>
-                )}
-                {isLastPage && (
-                    <button onClick={handleSubmit} id="submit-quiz" className="submit-button">Submit Quiz</button>
-                )}
-            </div>
+                <Page
+                    page={currentPage}
+                    onAnswerChange={handleAnswerChange}
+                    userAnswers={userAnswers}
+                    validationErrors={validationErrors} // Pass down validation errors
+                />
+            </main>
+
+            <footer className="quiz-footer">
+                <div className="quiz-footer-inner">
+                    <div className="quiz-navigation">
+                        {currentPageIndex > 0 && (
+                            <button onClick={handlePrevPage} className="prev-button">Previous</button>
+                        )}
+                        {!isLastPage && (
+                            <button onClick={handleNextPage} className="next-button">Next</button>
+                        )}
+                        {isLastPage && (
+                            <button onClick={handleSubmit} id="submit-quiz" className="submit-button">Submit Quiz</button>
+                        )}
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
