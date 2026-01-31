@@ -1,0 +1,6 @@
+page,element_id,type,value,options,validation_regex,validation_text,is_required
+,quiz_title,,My New Test Quiz
+,quiz_description,,A simple quiz for testing.
+,response_sheet_id,,dummy_response_id
+,page_def,page1,,Page 1
+page1,Q1,text,What is 1+1?,,,TRUE

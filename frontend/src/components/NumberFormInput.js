@@ -1,13 +1,13 @@
 import React from 'react';
 
-function DateQuestion({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+function NumberFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
     return (
         <>
             <input
-                type="date"
+                type="number"
                 name={inputName}
                 value={currentAnswer || ''}
-                onChange={(e) => onAnswerChange(question.element_id, e.target.value)}
+                onChange={(e) => onAnswerChange(question.id, e.target.value)}
                 required={isRequired}
             />
             {localError && <div className="error-message" style={{ color: 'red' }}>{localError}</div>}
@@ -15,4 +15,4 @@ function DateQuestion({ question, onAnswerChange, currentAnswer, inputName, isRe
     );
 }
 
-export default DateQuestion;
+export default NumberFormInput;

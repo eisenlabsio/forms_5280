@@ -1,10 +1,10 @@
 import React from 'react';
 
-function ChoiceQuestion({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+function ChoiceFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
     const { options } = question;
 
     const handleInputChange = (e) => {
-        onAnswerChange(question.element_id, e.target.value);
+        onAnswerChange(question.id, e.target.value);
     };
 
     return (
@@ -27,4 +27,4 @@ function ChoiceQuestion({ question, onAnswerChange, currentAnswer, inputName, is
     );
 }
 
-export default ChoiceQuestion;
+export default ChoiceFormInput;

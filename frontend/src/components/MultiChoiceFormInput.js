@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MultiChoiceQuestion({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+function MultiChoiceFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
     const { options } = question;
 
     const handleInputChange = (e) => {
@@ -11,7 +11,7 @@ function MultiChoiceQuestion({ question, onAnswerChange, currentAnswer, inputNam
         } else {
             newValues = currentValues.filter(v => v !== e.target.value);
         }
-        onAnswerChange(question.element_id, newValues.join(';'));
+        onAnswerChange(question.id, newValues.join(';'));
     };
 
     return (
@@ -33,4 +33,4 @@ function MultiChoiceQuestion({ question, onAnswerChange, currentAnswer, inputNam
     );
 }
 
-export default MultiChoiceQuestion;
+export default MultiChoiceFormInput;

@@ -1,42 +1,59 @@
 import React from 'react';
 import QuizElementMap from './QuizElementMap';
-import logger from '../utils/logger'; // Import the logger
+import logger from '../utils/logger';
 
-function Page({ page, onAnswerChange, userAnswers }) {
-    let questionNumberCounter = 0; // Reset question numbering for each page
+function Page({ page, onAnswerChange, userAnswers, validationErrors }) { // Receive validationErrors
+    let questionNumberCounter = 0;
 
     logger.log('Page component received page prop:', page);
-    logger.log('Page elements to render:', page.elements);
+    const elements = page.getElements();
+    logger.log('Page elements to render:', elements);
 
     return (
-        <div className="quiz-page" id={`page-${page.page_id}`}>
-            <h3>{page.page_title}</h3>
-            {page.page_description && <p>{page.page_description}</p>}
+        <div className="quiz-page" id={`page-${page.id}`}>
+            <h3>{page.title}</h3>
+            {page.description && <p>{page.description}</p>}
 
             <div className="page-elements">
-                {page.elements.map((item, index) => {
-                    logger.log(`Page: Rendering item with type "${item.type}" and element_id "${item.element_id}".`);
-                    const ElementComponent = QuizElementMap[item.type];
-                    logger.log(`Page: ElementComponent for type "${item.type}":`, ElementComponent ? 'Found' : 'Not Found');
+                {elements.map((item, index) => {
+                    logger.log(`Page: Rendering item with subType "${item.subType}" and id "${item.id}".`);
 
-                    if (item.type === 'section_title') {
-                        return <h4 key={index} className="section-title">{item.value}</h4>;
-                    } else if (ElementComponent) {
-                        const elementProps = {
-                            key: item.element_id || index,
-                            element: item,
-                        };
+                    const ElementComponent = QuizElementMap[item.subType];
 
-                        if (item.type === 'question') {
-                            questionNumberCounter++;
-                            elementProps.question = item;
-                            elementProps.questionNumber = questionNumberCounter;
-                            elementProps.onAnswerChange = onAnswerChange;
-                            elementProps.currentAnswer = userAnswers[item.element_id];
-                        }
-                        return <ElementComponent {...elementProps} />;
+                    logger.log(`Page: ElementComponent for subType "${item.subType}":`, ElementComponent ? 'Found' : 'Not Found');
+
+                    if (!ElementComponent) {
+                        return null;
                     }
-                    return null;
+
+                    const elementProps = {
+                        key: item.id || index,
+                        element: item, // Pass the FormInput instance as 'element'
+                        localError: validationErrors[item.id], // Pass down specific error
+                    };
+
+                    if (item.category === 'question') {
+                        questionNumberCounter++;
+                        elementProps.question = item; // For backward compatibility with specific question components
+                        elementProps.questionNumber = questionNumberCounter;
+                        elementProps.onAnswerChange = onAnswerChange;
+                        elementProps.currentAnswer = userAnswers[item.id];
+                        
+                        const questionLabel = `${questionNumberCounter}. ${item.text}`;
+                        const elementId = item.elementId || item.id;
+
+                        return (
+                            <div key={item.id || index} className="question-block" data-element-id={elementId}>
+                                <p className="question-text">{questionLabel}</p>
+                                <div className="input-area">
+                                    <ElementComponent {...elementProps} />
+                                </div>
+                            </div>
+                        );
+                    }
+
+                    // For non-question elements, simply return the component
+                    return <ElementComponent {...elementProps} />;
                 })}
             </div>
         </div>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMasterSheet, fetchQuiz } from '../services/googleSheets';
-import logger from '../utils/logger'; // Import the logger
+import { fetchMasterSheet } from '../services/googleSheets';
+import logger from '../utils/logger';
 
 function QuizSelection({ onQuizSelect }) {
     const [masterQuizTitle, setMasterQuizTitle] = useState('Quiz Selection');
     const [masterQuizDescription, setMasterQuizDescription] = useState('Select a quiz from the list below.');
     const [availableQuizzes, setAvailableQuizzes] = useState([]);
+    const [masterDirection, setMasterDirection] = useState('ltr');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -24,33 +25,12 @@ function QuizSelection({ onQuizSelect }) {
         const loadMasterSheet = async () => {
             try {
                 setLoading(true);
-                const { masterQuizTitle, masterQuizDescription, individualQuizSheetIds } = await fetchMasterSheet(masterSheetId);
+                const { masterQuizTitle, masterQuizDescription, masterDirection, availableQuizzes } = await fetchMasterSheet(masterSheetId);
                 setMasterQuizTitle(masterQuizTitle);
                 setMasterQuizDescription(masterQuizDescription);
-                logger.log('Fetched master quiz data:', { masterQuizTitle, masterQuizDescription, individualQuizSheetIds });
-
-                // Fetch metadata for each individual quiz sheet
-                const quizMetadataPromises = individualQuizSheetIds.map(async (quizInfo) => {
-                    logger.log('Fetching metadata for individual quiz:', quizInfo.gid);
-                    try {
-                        const { quizTitle, quizDescription, responseSheetId } = await fetchQuiz(quizInfo.gid);
-                        logger.log(`Metadata fetched for quiz ${quizInfo.gid}:`, { quizTitle, quizDescription, responseSheetId });
-                        return {
-                            individualQuizSheetId: quizInfo.gid,
-                            quizTitle: quizTitle,
-                            quizDescription: quizDescription,
-                            responseSheetId: responseSheetId
-                        };
-                    } catch (err) {
-                        logger.error(`Error fetching metadata for quiz sheet ID ${quizInfo.gid}:`, err);
-                        return null; // Return null for quizzes that failed to fetch metadata
-                    }
-                });
-
-                const allQuizMetadata = await Promise.all(quizMetadataPromises);
-                const validQuizzes = allQuizMetadata.filter(metadata => metadata !== null);
-                setAvailableQuizzes(validQuizzes);
-                logger.log('Available quizzes:', validQuizzes);
+                setMasterDirection(masterDirection === 'rtl' ? 'rtl' : 'ltr');
+                setAvailableQuizzes(availableQuizzes);
+                logger.log('Available quizzes:', availableQuizzes);
             } catch (err) {
                 logger.error('Error loading master sheet:', err);
                 setError('Error loading quizzes. Please check the sheet ID and network connection.');
@@ -75,18 +55,18 @@ function QuizSelection({ onQuizSelect }) {
     }
 
     return (
-        <div id="quiz-selection" className="quiz-selection">
+        <div id="quiz-selection" className="quiz-selection" dir={masterDirection}>
             <h2>{masterQuizTitle}</h2>
             <p className="master-quiz-description">{masterQuizDescription}</p>
             <div id="quiz-list" className="quiz-list">
                 {availableQuizzes.map(quiz => (
                     <div
-                        key={quiz.individualQuizSheetId}
+                        key={quiz.sheet_id}
                         className="quiz-card"
-                        onClick={() => onQuizSelect(quiz.individualQuizSheetId, quiz.quizTitle, quiz.quizDescription, quiz.responseSheetId)}
+                        onClick={() => onQuizSelect(quiz.sheet_id, quiz.title, quiz.description)}
                     >
-                        <h3>{quiz.quizTitle}</h3>
-                        <p>{quiz.quizDescription}</p>
+                        <h3>{quiz.title}</h3>
+                        <p>{quiz.description}</p>
                     </div>
                 ))}
             </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 
-function TextQuestion({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+function DateFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
     return (
         <>
             <input
-                type="text"
+                type="date"
                 name={inputName}
                 value={currentAnswer || ''}
-                onChange={(e) => onAnswerChange(question.element_id, e.target.value)}
+                onChange={(e) => onAnswerChange(question.id, e.target.value)}
                 required={isRequired}
             />
             {localError && <div className="error-message" style={{ color: 'red' }}>{localError}</div>}
@@ -15,4 +15,4 @@ function TextQuestion({ question, onAnswerChange, currentAnswer, inputName, isRe
     );
 }
 
-export default TextQuestion;
+export default DateFormInput;

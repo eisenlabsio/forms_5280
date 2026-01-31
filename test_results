@@ -1,0 +1,2960 @@
+
+> react-frontend@0.1.0 test:e2e
+> start-server-and-test start http://localhost:3000/ "npx jest --config ./jest-e2e.config.js"
+
+1: starting server using command "npm run start"
+and when url "[ 'http://localhost:3000/' ]" is responding with HTTP status code 200
+running tests using command "npx jest --config ./jest-e2e.config.js"
+
+
+> react-frontend@0.1.0 start
+> react-scripts start
+
+(node:81434) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:81434) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view react-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://10.255.73.228:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+  console.log
+    Jest process.cwd(): /Users/ieisenman/workspace/gas/quizzes/frontend
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:4:9)
+
+  console.log
+    Navigating to: http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:36:13
+
+  console.log
+    >> GET http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    FRAME NAVIGATED to: http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:33:48
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET http://localhost:3000/static/js/bundle.js
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 http://localhost:3000/static/js/bundle.js
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.638Z] QuizApp Log: Master sheet ID from URL: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.639Z] QuizApp Log: Attempting to fetch master sheet with ID: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.640Z] QuizApp Log: Loading content data with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.640Z] QuizApp Log: Attempting to fetch content sheet with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.640Z] QuizApp Log: Master sheet ID from URL: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.640Z] QuizApp Log: Attempting to fetch master sheet with ID: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.640Z] QuizApp Log: Loading content data with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:48.641Z] QuizApp Log: Attempting to fetch content sheet with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    >> GET http://localhost:3000/manifest.json
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    >> GET http://localhost:3000/favicon.ico
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 http://localhost:3000/manifest.json
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 http://localhost:3000/favicon.ico
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET http://localhost:3000/logo192.png
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 http://localhost:3000/logo192.png
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/ggjr9n6ic0tldirvhbv3abf608/1768854765000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/3t8tpn0n7jsvbf1a5rlo6o01cc/1768854765000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/ggjr9n6ic0tldirvhbv3abf608/1768854765000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/3t8tpn0n7jsvbf1a5rlo6o01cc/1768854765000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/3t8tpn0n7jsvbf1a5rlo6o01cc/1768854765000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.628Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.629Z] QuizApp Log: Content sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.629Z] QuizApp Log: Content data loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/ggjr9n6ic0tldirvhbv3abf608/1768854765000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.631Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.631Z] QuizApp Log: Master sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.631Z] QuizApp Log: Parsed master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.631Z] QuizApp Log: Fetched master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.632Z] QuizApp Log: Fetching metadata for individual quiz: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.632Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.632Z] QuizApp Log: Fetching metadata for individual quiz: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.632Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/3t8tpn0n7jsvbf1a5rlo6o01cc/1768854765000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.916Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.917Z] QuizApp Log: Content sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.917Z] QuizApp Log: Content data loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/ggjr9n6ic0tldirvhbv3abf608/1768854765000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.919Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Master sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Parsed master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Fetched master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Fetching metadata for individual quiz: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Fetching metadata for individual quiz: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:49.920Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.270Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.270Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.272Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.273Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.273Z] QuizApp Log: Metadata fetched for quiz 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.539Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.540Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.540Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.540Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.540Z] QuizApp Log: Metadata fetched for quiz 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.613Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.614Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.614Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.614Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.614Z] QuizApp Log: Metadata fetched for quiz 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.614Z] QuizApp Log: Available quizzes: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    PAGE CONTENT DUMP AFTER LOAD ATTEMPT:
+     <!DOCTYPE html><html lang="en"><head>
+        <meta charset="utf-8">
+        <link rel="icon" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#000000">
+        <meta name="description" content="Web site created using create-react-app">
+        <link rel="apple-touch-icon" href="/logo192.png">
+        <!--
+          manifest.json provides metadata used when your web app is installed on a
+          user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+        -->
+        <link rel="manifest" href="/manifest.json">
+        <!--
+          Notice the use of  in the tags above.
+          It will be replaced with the URL of the `public` folder during the build.
+          Only files inside the `public` folder can be referenced from the HTML.
+    
+          Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+          work correctly both with client-side routing and a non-root public URL.
+          Learn how to configure a non-root public URL by running `npm run build`.
+        -->
+        <title>React App</title>
+      <script defer="" src="/static/js/bundle.js"></script><style>.App {
+      text-align: center;
+    }
+    
+    .App-header {
+      background-color: #282c34;
+      padding: 20px;
+      color: white;
+    }
+    
+    .App-main {
+      padding: 20px;
+    }
+    
+    .quiz-selection, .quiz-display {
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      max-width: 800px;
+      text-align: left;
+    }
+    
+    .quiz-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .quiz-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .quiz-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .question-block {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    
+    .question-text {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .input-area label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .input-area input[type="text"],
+    .input-area input[type="number"],
+    .input-area input[type="date"],
+    .input-area textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .input-area input[type="radio"],
+    .input-area input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    .quiz-navigation button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      font-size: 1em;
+    }
+    
+    .quiz-navigation button:hover {
+      background-color: #0056b3;
+    }
+    
+    .submit-button {
+      background-color: #28a745;
+    }
+    
+    .submit-button:hover {
+      background-color: #218838;
+    }
+    
+    .back-button {
+      background-color: #6c757d;
+      margin-bottom: 20px;
+    }
+    
+    .back-button:hover {
+      background-color: #5a6268;
+    }
+    
+    .loading-message, .no-quizzes-message, .no-quiz-data {
+      text-align: center;
+      font-size: 1.2em;
+      padding: 20px;
+      color: #555;
+    }
+    
+    .quiz-navigation {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGFBQWE7RUFDYiwyREFBMkQ7RUFDM0QsU0FBUztFQUNULGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGVBQWU7RUFDZix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSx3Q0FBd0M7RUFDeEMsMkJBQTJCO0FBQzdCOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGFBQWE7RUFDYix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCOztBQUVBOzs7O0VBSUUsV0FBVztFQUNYLFlBQVk7RUFDWixlQUFlO0VBQ2Ysc0JBQXNCO0VBQ3RCLGtCQUFrQjtBQUNwQjs7QUFFQTs7RUFFRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxVQUFVO0VBQ1YsZ0JBQWdCO0VBQ2hCLGVBQWU7QUFDakI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSx5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLHlCQUF5QjtBQUMzQiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcbiAgcGFkZGluZzogMjBweDtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4uQXBwLW1haW4ge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4ucXVpei1zZWxlY3Rpb24sIC5xdWl6LWRpc3BsYXkge1xuICBtYXJnaW46IDIwcHggYXV0bztcbiAgcGFkZGluZzogMjBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xuICBtYXgtd2lkdGg6IDgwMHB4O1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG4ucXVpei1saXN0IHtcbiAgZGlzcGxheTogZ3JpZDtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maXQsIG1pbm1heCgyNTBweCwgMWZyKSk7XG4gIGdhcDogMjBweDtcbiAgbWFyZ2luLXRvcDogMjBweDtcbn1cblxuLnF1aXotY2FyZCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgcGFkZGluZzogMTVweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xufVxuXG4ucXVpei1jYXJkOmhvdmVyIHtcbiAgYm94LXNoYWRvdzogMCA0cHggOHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpO1xufVxuXG4ucXVlc3Rpb24tYmxvY2sge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBwYWRkaW5nOiAxNXB4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjZjBmMGYwO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmOWY5Zjk7XG59XG5cbi5xdWVzdGlvbi10ZXh0IHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5pbnB1dC1hcmVhIGxhYmVsIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmlucHV0LWFyZWEgaW5wdXRbdHlwZT1cInRleHRcIl0sXG4uaW5wdXQtYXJlYSBpbnB1dFt0eXBlPVwibnVtYmVyXCJdLFxuLmlucHV0LWFyZWEgaW5wdXRbdHlwZT1cImRhdGVcIl0sXG4uaW5wdXQtYXJlYSB0ZXh0YXJlYSB7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nOiA4cHg7XG4gIG1hcmdpbi10b3A6IDVweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2RkZDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG4uaW5wdXQtYXJlYSBpbnB1dFt0eXBlPVwicmFkaW9cIl0sXG4uaW5wdXQtYXJlYSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0ge1xuICBtYXJnaW4tcmlnaHQ6IDhweDtcbn1cblxuLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDAuOWVtO1xuICBtYXJnaW4tdG9wOiA1cHg7XG59XG5cbi5xdWl6LW5hdmlnYXRpb24gYnV0dG9uIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwN2JmZjtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nOiAxMHB4IDE1cHg7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgZm9udC1zaXplOiAxZW07XG59XG5cbi5xdWl6LW5hdmlnYXRpb24gYnV0dG9uOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwNTZiMztcbn1cblxuLnN1Ym1pdC1idXR0b24ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjhhNzQ1O1xufVxuXG4uc3VibWl0LWJ1dHRvbjpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMTg4Mzg7XG59XG5cbi5iYWNrLWJ1dHRvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM2Yzc1N2Q7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5iYWNrLWJ1dHRvbjpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM1YTYyNjg7XG59XG5cbi5sb2FkaW5nLW1lc3NhZ2UsIC5uby1xdWl6emVzLW1lc3NhZ2UsIC5uby1xdWl6LWRhdGEge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogMS4yZW07XG4gIHBhZGRpbmc6IDIwcHg7XG4gIGNvbG9yOiAjNTU1O1xufVxuXG4ucXVpei1uYXZpZ2F0aW9uIHtcbiAgbWFyZ2luLXRvcDogMjBweDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
+      <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"> <div class="App"><header class="App-header"><h1>Quiz Application</h1></header><main><div class="quiz-selection" id="quiz-selection"><h2>My Awesome Quizzes Collection</h2><p class="master-quiz-description">Explore a variety of quizzes on different subjects.</p><div id="quiz-list" class="quiz-list"><div class="quiz-card"><h3>Science Basics Quiz</h3><p>Test your knowledge of fundamental science across multiple sections.</p></div><div class="quiz-card"><h3>History Challenge</h3><p>Test your knowledge of significant historical events and figures across different eras.</p></div></div></div></main></div></div>
+        <!--
+          This HTML file is a template.
+          If you open it directly in the browser, you will see an empty page.
+    
+          You can add webfonts, meta tags, or analytics to this file.
+          The build step will place the bundled scripts into the <body> tag.
+    
+          To begin the development, run `npm start` or `yarn start`.
+          To create a production bundle, use `npm run build` or `yarn build`.
+        -->
+      
+    
+    </body></html>
+
+      at src/e2e-tests/quiz-flow.test.js:52:13
+
+  console.log
+    Attempting to save screenshot to: /Users/ieisenman/workspace/gas/quizzes/frontend/e2e-tests/screenshot-after-load-attempt.png
+
+      at src/e2e-tests/quiz-flow.test.js:54:13
+
+  console.log
+    Test: should allow selecting an individual quiz - Starting.
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:80:13)
+
+  console.log
+    Test: should allow selecting an individual quiz - Quiz card titles found.
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:82:13)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.690Z] QuizApp Log: QuizDisplay: Loading state active.
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.690Z] QuizApp Log: QuizDisplay: Loading state active.
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.690Z] QuizApp Log: Loading quiz for individualQuizSheetId: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.691Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.691Z] QuizApp Log: Loading quiz for individualQuizSheetId: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.691Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    Test: should allow selecting an individual quiz - History Challenge quiz card clicked.
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:93:13)
+
+  console.log
+    << 200 https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: Metadata fetched for quiz 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:50.892Z] QuizApp Log: Available quizzes: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.222Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.223Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.223Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.223Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.223Z] QuizApp Log: Quiz loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.224Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.224Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.225Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.225Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.226Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.226Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: A props object containing a "key" prop is being spread into JSX:
+      let props = %s;
+      <%s {...props} />
+    React keys must be passed directly to JSX without using spread:
+      let props = %s;
+      <%s key={someKey} {...props} /> {key: someKey, element: ..., question: ..., questionNumber: ..., onAnswerChange: ..., currentAnswer: ...} QuestionElement {element: ..., question: ..., questionNumber: ..., onAnswerChange: ..., currentAnswer: ...} QuestionElement
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.226Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.226Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.227Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.227Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    Test: should allow selecting an individual quiz - Question block found via waitForFunction.
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:102:13)
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.238Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Quiz loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.239Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.240Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.240Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.240Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    Test: should allow selecting an individual quiz - Assertions passed.
+
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:107:13)
+
+  console.log
+    >> GET http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 304 http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    FRAME NAVIGATED to: http://localhost:3000/?sheetId=117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:33:48
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET http://localhost:3000/static/js/bundle.js
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 304 http://localhost:3000/static/js/bundle.js
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.327Z] QuizApp Log: Master sheet ID from URL: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Attempting to fetch master sheet with ID: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Loading content data with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Attempting to fetch content sheet with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Master sheet ID from URL: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Attempting to fetch master sheet with ID: 117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Loading content data with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.329Z] QuizApp Log: Attempting to fetch content sheet with ID: 1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    >> GET http://localhost:3000/manifest.json
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 304 http://localhost:3000/manifest.json
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET http://localhost:3000/logo192.png
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 304 http://localhost:3000/logo192.png
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/8f10o1ipjoipgm9bmbiitmjh2g/1768854770000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/8f10o1ipjoipgm9bmbiitmjh2g/1768854770000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/n691klgt20hajr4ibcau1ahk90/1768854770000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/n691klgt20hajr4ibcau1ahk90/1768854770000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/8f10o1ipjoipgm9bmbiitmjh2g/1768854770000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: Master sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: Parsed master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: Fetched master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: Fetching metadata for individual quiz: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.858Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.859Z] QuizApp Log: Fetching metadata for individual quiz: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.859Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/n691klgt20hajr4ibcau1ahk90/1768854770000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.863Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.863Z] QuizApp Log: Content sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:51.863Z] QuizApp Log: Content data loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0o-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/8f10o1ipjoipgm9bmbiitmjh2g/1768854770000/107356803173566036629/*/117kB62YhkTV0cby-kYomINl0yKd5F4MEz4Fm1Hx9XNM?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.130Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Master sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Parsed master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Fetched master quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Fetching metadata for individual quiz: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Fetching metadata for individual quiz: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.131Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-10-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/n691klgt20hajr4ibcau1ahk90/1768854770000/107356803173566036629/*/1kHLhA3I90fttIQL40vkK3HxTEBU5eagVVRy12fzNzMo?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.148Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.148Z] QuizApp Log: Content sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.148Z] QuizApp Log: Content data loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.374Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.375Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.375Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.375Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.375Z] QuizApp Log: Metadata fetched for quiz 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.429Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.430Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.430Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.430Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.430Z] QuizApp Log: Metadata fetched for quiz 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.430Z] QuizApp Log: Available quizzes: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.444Z] QuizApp Log: QuizDisplay: Loading state active.
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.444Z] QuizApp Log: QuizDisplay: Loading state active.
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.445Z] QuizApp Log: Loading quiz for individualQuizSheetId: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.445Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.445Z] QuizApp Log: Loading quiz for individualQuizSheetId: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.445Z] QuizApp Log: Attempting to fetch individual quiz sheet with ID: 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-00-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/k54d269b45cb7q7c175d8a03dc/1768854770000/107356803173566036629/*/1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.653Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.653Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.653Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.653Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.653Z] QuizApp Log: Metadata fetched for quiz 1H5gy4tlJqZmyLSEREx4jTR9UgzAbY9xzUxicCtnmiKY: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.666Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.666Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.666Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.667Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.667Z] QuizApp Log: Metadata fetched for quiz 14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.667Z] QuizApp Log: Available quizzes: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 307 https://docs.google.com/spreadsheets/d/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8/export?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    >> GET https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:21:43
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.951Z] QuizApp Log: CSV parsed and filtered successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.951Z] QuizApp Log: Individual quiz sheet fetched and parsed successfully. JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.951Z] QuizApp Log: Final pages array constructed in fetchQuiz: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.951Z] QuizApp Log: Parsed individual quiz data: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.951Z] QuizApp Log: Quiz loaded: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.952Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: A props object containing a "key" prop is being spread into JSX:
+      let props = %s;
+      <%s {...props} />
+    React keys must be passed directly to JSX without using spread:
+      let props = %s;
+      <%s key={someKey} {...props} /> {key: someKey, element: ..., question: ..., questionNumber: ..., onAnswerChange: ..., currentAnswer: ...} QuestionElement {element: ..., question: ..., questionNumber: ..., onAnswerChange: ..., currentAnswer: ...} QuestionElement
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.953Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.953Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.953Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.953Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    << 200 https://doc-0s-98-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/9dt7d7l48jh9itk0duvhrfvgl4/1768854770000/107356803173566036629/*/14p4zOnE2ZRDW4OJVqiC3PpGGDoek0dxW_jrChxutbF8?format=csv
+
+      at src/e2e-tests/quiz-flow.test.js:28:17
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.983Z] QuizApp Log: Answer changed for H1: 4
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.983Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.984Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: Answer changed for H1: 47
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.993Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.994Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.994Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.994Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:52.994Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.001Z] QuizApp Log: Answer changed for H1: 476
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.001Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.001Z] QuizApp Log: QuizDisplay: Rendering page: ancient_history Index: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.001Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page component received page prop: JSHandle@object
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page elements to render: JSHandle@array
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page: Rendering item with type "question" and element_id "H1".
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.002Z] QuizApp Log: Page: ElementComponent for type "question": Found
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.026Z] QuizApp Log: Attempting to navigate to next page.
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.026Z] QuizApp Log: Validating current page: 0
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+  console.log
+    BROWSER CONSOLE: [2026-01-19T20:32:53.026Z] QuizApp Warning: Validation failed for H1: invalid format. Answer: 476, Regex: ^\\d{3,4}$
+
+      at src/e2e-tests/quiz-flow.test.js:31:39
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+          at Array.map (<anonymous>)
+
+FAIL src/e2e-tests/quiz-flow.test.js (33.853 s)
+  Quiz Application E2E Tests
+    ✓ should successfully navigate to the quiz selection page with sheetId (12 ms)
+    ✓ should load the main page and display quiz selection (4 ms)
+    ✓ should allow selecting an individual quiz (574 ms)
+    ✕ should navigate through questions and input text answer (30003 ms)
+
+  ● Quiz Application E2E Tests › should navigate through questions and input text answer
+
+    thrown: "Exceeded timeout of 30000 ms for a test.
+    Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+
+      108 |   }, 20000); // Test timeout for this specific test
+      109 |
+    > 110 |   test('should navigate through questions and input text answer', async () => {
+          |   ^
+      111 |     // Since each test is isolated, we need to re-navigate and select the quiz
+      112 |     await page.goto(`${BASE_URL}?sheetId=${MASTER_SHEET_ID}`);
+      113 |     await page.waitForFunction(
+
+      at src/e2e-tests/quiz-flow.test.js:110:3
+      at Object.<anonymous> (src/e2e-tests/quiz-flow.test.js:12:1)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        34.35 s, estimated 38 s
+Ran all test suites.
+Error: Command failed with exit code 1: npx jest --config ./jest-e2e.config.js
+    at makeError (/Users/ieisenman/workspace/gas/quizzes/frontend/node_modules/execa/lib/error.js:60:11)
+    at handlePromise (/Users/ieisenman/workspace/gas/quizzes/frontend/node_modules/execa/index.js:118:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  shortMessage: 'Command failed with exit code 1: npx jest --config ./jest-e2e.config.js',
+  command: 'npx jest --config ./jest-e2e.config.js',
+  escapedCommand: '"npx jest --config ./jest-e2e.config.js"',
+  exitCode: 1,
+  signal: undefined,
+  signalDescription: undefined,
+  stdout: undefined,
+  stderr: undefined,
+  failed: true,
+  timedOut: false,
+  isCanceled: false,
+  killed: false
+}

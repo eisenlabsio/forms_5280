@@ -1,0 +1,26 @@
+path,value
+global.quiz_title,History Challenge
+global.quiz_description,Test your knowledge of significant historical events and figures across different eras.
+global.response_sheet_id,history_response_sheet_id
+global.ancient_page_def.page_id,ancient_history
+global.ancient_page_def.page_title,Ancient Civilizations
+global.ancient_page_def.page_description,Questions covering early human history and ancient empires.
+global.world_page_def.page_id,world_history
+global.world_page_def.page_title,World Wars
+global.world_page_def.page_description,Questions covering major global conflicts.
+question.ancient_history.H1.question,In which year did the Roman Empire fall?
+question.ancient_history.H1.question_type,number
+question.ancient_history.H1.question_validation_regex,^\\d{3,4}$
+question.ancient_history.H1.question_is_required,TRUE
+question.ancient_history.H2.question,Who was the first Emperor of China?
+question.ancient_history.H2.question_type,text
+question.ancient_history.H2.question_is_required,TRUE
+question.world_history.W1.question,Which countries were the main Axis powers in WWII?
+question.world_history.W1.question_type,multi_choice
+question.world_history.W1.question_option,Germany
+question.world_history.W1.question_option,Italy
+question.world_history.W1.question_option,Japan
+question.world_history.W1.question_is_required,TRUE
+question.world_history.W2.question,When did World War I end?
+question.world_history.W2.question_type,date
+question.world_history.W2.question_is_required,TRUE

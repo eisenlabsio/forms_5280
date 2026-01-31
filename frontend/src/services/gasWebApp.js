@@ -4,7 +4,7 @@ import logger from '../utils/logger'; // Import the logger
 async function collectMetadata() {
     const metadata = {
         userAgent: navigator.userAgent,
-        timestamp: new Date().toISOString(),
+        Timestamp: new Date().toISOString(),
         latitude: null,
         longitude: null,
         accuracy: null,
@@ -78,7 +78,8 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
         });
 
         const result = await response.json();
-        logger.log('Quiz submission response:', result);
+        logger.log('Quiz submission response:', result); // This logs to frontend console
+        console.log('GAS Web App Raw Response:', result); // Add this for test output
         return result;
     } catch (error) {
         logger.error('Error submitting quiz:', error);

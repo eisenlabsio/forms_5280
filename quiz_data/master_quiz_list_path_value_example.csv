@@ -1,0 +1,9 @@
+path,value
+global.quiz_title,My Awesome Quizzes Collection
+global.quiz_description,Explore a variety of quizzes on different subjects.
+quizzes.0.sheet_id,science_sheet_id
+quizzes.0.title,Science Basics
+quizzes.0.description,Test your knowledge of fundamental science.
+quizzes.1.sheet_id,history_sheet_id
+quizzes.1.title,History Challenge
+quizzes.1.description,Test your knowledge of significant historical events and figures across different eras.

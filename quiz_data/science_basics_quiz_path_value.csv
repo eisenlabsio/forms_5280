@@ -1,0 +1,10 @@
+path,value
+global.quiz_title,Science Basics
+global.quiz_description,Test your knowledge of fundamental science.
+global.response_sheet_id,science_response_sheet_id
+global.intro_page_def.page_id,science_intro
+global.intro_page_def.page_title,Science Introduction
+global.intro_page_def.page_description,Start with some basic science questions.
+question.science_intro.S1.question,What is the chemical symbol for water?
+question.science_intro.S1.question_type,text
+question.science_intro.S1.question_is_required,TRUE

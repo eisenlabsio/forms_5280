@@ -1,13 +1,13 @@
 import React from 'react';
 
-function PhoneQuestion({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+function PhoneFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
     // Basic regex for a common phone number format (e.g., XXX-XXX-XXXX or XXXXXXXXXX)
     // This can be made more sophisticated or configurable.
-    const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+    const phoneRegex = question.validationRegex || '^\\+?[1-9]\\d{1,14}$'; // Use validationRegex from question or default to E.164
 
     const handleInputChange = (e) => {
         const value = e.target.value;
-        onAnswerChange(question.element_id, value);
+        onAnswerChange(question.id, value);
     };
 
     return (
@@ -18,12 +18,13 @@ function PhoneQuestion({ question, onAnswerChange, currentAnswer, inputName, isR
                 value={currentAnswer || ''}
                 onChange={handleInputChange}
                 required={isRequired}
-                pattern={phoneRegex.source} // Use regex.source to get the string pattern
-                title="Phone number must be in the format: 123-456-7890 or 1234567890"
+                pattern={phoneRegex} // Use regex.source to get the string pattern
+                placeholder={question.placeholder || ''}
+                title="Phone number must be in the format: 123-456-7890 or 1234567890" // This title might be overwritten by the global validation error message
             />
             {localError && <div className="error-message" style={{ color: 'red' }}>{localError}</div>}
         </>
     );
 }
 
-export default PhoneQuestion;
+export default PhoneFormInput;

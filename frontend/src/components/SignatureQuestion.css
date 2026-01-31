@@ -1,0 +1,153 @@
+.signature-question-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.question-text {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.add-signature-button,
+.edit-signature-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.add-signature-button:hover,
+.edit-signature-button:hover {
+    background-color: #0056b3;
+}
+
+.signature-preview {
+    margin-top: 10px;
+    border: 1px dashed #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.signature-preview p {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.signature-img-preview, .signature-svg-preview {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+/* Ensure SVG content respects its viewbox or defined dimensions */
+.signature-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below inline elements */
+}
+
+
+.signature-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.signature-modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 90%;
+    width: 500px;
+}
+
+.signature-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signature-canvas {
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: crosshair;
+    touch-action: none; /* Prevent scrolling on touch devices */
+    width: 100%; /* Make canvas responsive within modal */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.clear-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+    background-color: #c82333;
+}
+
+.save-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+    background-color: #5a6268;
+}

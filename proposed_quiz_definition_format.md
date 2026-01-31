@@ -26,15 +26,20 @@ We will use the existing `page`, `element_id`, `type`, `value` columns, but the 
     *   **Content Elements (Questions, sections, info text):**
         *   `question`: Marks the beginning of a new question block. `value` = The actual question text.
         *   `question_id`: The unique identifier that will be used as the key for this question's answer when sending data to the backend. If not provided for a question, `element_id` will be used as the `question_id`. `value` = The actual `questionId` string.
-        *   `question_type`: Specifies the type of input field for the preceding `question`. `value` = `text`, `long_text`, `number`, `date`, `signature`, `choice`, `multi_choice`.
+        *   `question_type`: Specifies the type of input field for the preceding `question`. `value` = `text`, `long_text`, `number`, `date`, `signature`, `choice`, `multi_choice`, `dropdown`.
         *   `question_option`: For `choice` and `multi_choice` question types, each option will be a separate row with this `type`. `value` = The text of the option.
         *   `question_hint`: Optional hint text for the question. `value` = The hint text.
+        *   `question_placeholder`: Optional placeholder text for inputs that support it (text, long_text, number, phone, dropdown, etc.). `value` = The placeholder text.
+        *   `question_remember_last`: Optional boolean flag to remember the last answer in local storage. `value` = `TRUE` or `FALSE`.
+        *   `question_remember_key`: Optional key name to reuse a saved answer across quizzes (e.g., `first_name`, `phone`). Setting this enables remembering for the field.
+        *   `question_default_answer`: Optional default value used when no remembered answer exists. `value` = The default answer text.
         *   `question_error_message`: Optional custom error message for client-side validation. `value` = The error message.
         *   `question_right_answer`: The correct answer for the question. `value` = The correct answer.
         *   `question_validation_regex`: A regular expression string for client-side input validation. `value` = The regex string.
         *   `question_is_required`: A boolean flag indicating if the question is mandatory. `value` = `TRUE` or `FALSE`.
         *   `section_title`: Section title *within a page*.
         *   `info_text`: General informational text *within a page*.
+        *   `display_html`: Raw HTML block *within a page*.
 
 **Updated Example Quiz Definition Sheet (CSV format with Pages):**
 
@@ -49,6 +54,7 @@ page,element_id,type,value
 ,intro_page_def,page_description,Welcome to the Science Basics Quiz. Please read the instructions carefully before proceeding.
 
 intro,welcome_text,info_text,This first section covers general science knowledge.
+intro,info_block,display_html,<div><strong>Note:</strong> Answers are anonymous.</div>
 intro,Q1,question,What is the chemical symbol for water?
 intro,Q1,question_id,water_symbol_q1
 intro,Q1,question_type,text

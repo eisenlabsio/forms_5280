@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { fetchQuiz } from '../services/googleSheets';
 import { submitQuiz } from '../services/gasWebApp';
-import QuizElementMap from './QuizElementMap';
 import Page from './Page';
-import logger from '../utils/logger'; // Import the logger
+import logger from '../utils/logger';
+import { normalizeRegexString } from '../utils/validation';
 
 function QuizDisplay({ individualQuizSheetId, onBack }) {
-    const [quizData, setQuizData] = useState(null); // This now holds the array of pages
+    const [quiz, setQuiz] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [userAnswers, setUserAnswers] = useState({});
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
-    const [currentQuizTitle, setCurrentQuizTitle] = useState('');
-    const [currentQuizDescription, setCurrentQuizDescription] = useState('');
-    const [currentResponseSheetId, setCurrentResponseSheetId] = useState('');
+    const [validationErrors, setValidationErrors] = useState({}); // New state for validation errors
+    const rememberKeyMapRef = useRef({});
 
     useEffect(() => {
         const loadQuiz = async () => {
             logger.log('Loading quiz for individualQuizSheetId:', individualQuizSheetId);
             try {
                 setLoading(true);
-                const { quizData: fetchedPages, quizTitle: fetchedQuizTitle, quizDescription: fetchedQuizDescription, responseSheetId: fetchedResponseSheetId } = await fetchQuiz(individualQuizSheetId);
+                const fetchedQuiz = await fetchQuiz(individualQuizSheetId);
                 
-                setQuizData(fetchedPages);
-                setCurrentQuizTitle(fetchedQuizTitle);
-                setCurrentQuizDescription(fetchedQuizDescription);
-                setCurrentResponseSheetId(fetchedResponseSheetId);
-                logger.log('Quiz loaded:', { fetchedQuizTitle, fetchedQuizDescription, fetchedResponseSheetId, fetchedPages });
+                if (fetchedQuiz) {
+                    setQuiz(fetchedQuiz);
+                    logger.log('Quiz loaded:', fetchedQuiz);
+                } else {
+                    throw new Error("Quiz data could not be fetched.");
+                }
 
             } catch (err) {
                 logger.error('Error loading quiz:', err);
@@ -39,58 +39,111 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
         loadQuiz();
     }, [individualQuizSheetId]);
 
-    const handleAnswerChange = (questionId, answer) => {
-        logger.log(`Answer changed for ${questionId}:`, answer);
+    useEffect(() => {
+        if (!quiz) {
+            rememberKeyMapRef.current = {};
+            return;
+        }
+
+        const rememberKeyMap = {};
+        const rememberedAnswers = {};
+        const defaultAnswers = {};
+
+        quiz.getPages().forEach(page => {
+            page.getElements().forEach(item => {
+                if (item.category === 'question' && item.rememberLastAnswer) {
+                    const storageKey = buildRememberStorageKey(item.rememberKey, individualQuizSheetId, item.id);
+                    rememberKeyMap[item.id] = storageKey;
+                    const savedValue = getRememberedValue(storageKey);
+                    if (savedValue !== null && savedValue !== undefined && savedValue !== '') {
+                        rememberedAnswers[item.id] = savedValue;
+                    } else if (item.defaultAnswer !== undefined && item.defaultAnswer !== null && item.defaultAnswer !== '') {
+                        defaultAnswers[item.id] = item.defaultAnswer;
+                    }
+                } else if (item.category === 'question' && item.defaultAnswer !== undefined && item.defaultAnswer !== null && item.defaultAnswer !== '') {
+                    defaultAnswers[item.id] = item.defaultAnswer;
+                }
+            });
+        });
+
+        rememberKeyMapRef.current = rememberKeyMap;
+        if (Object.keys(rememberedAnswers).length > 0 || Object.keys(defaultAnswers).length > 0) {
+            setUserAnswers(prevAnswers => ({
+                ...rememberedAnswers,
+                ...defaultAnswers,
+                ...prevAnswers,
+            }));
+        }
+    }, [quiz, individualQuizSheetId]);
+
+    const runValidation = useCallback((formInput, value) => {
+        let errorMessage = '';
+
+        if (formInput.isRequired && (!value || (typeof value === 'string' && value.trim() === ''))) {
+            errorMessage = formInput.errorMessage || 'This field is required.';
+        } else if (formInput.validationRegex && value) {
+            const normalizedRegex = normalizeRegexString(formInput.validationRegex);
+            try {
+                const regex = new RegExp(normalizedRegex);
+                if (!regex.test(value)) {
+                    errorMessage = formInput.errorMessage || 'Invalid input format.';
+                }
+            } catch (e) {
+                logger.error('Error during regex validation:', formInput.validationRegex, e);
+                errorMessage = 'Invalid validation rule.';
+            }
+        }
+        return errorMessage;
+    }, []);
+
+    const handleAnswerChange = (formInputId, answer) => {
+        const stringAnswer = String(answer);
+        logger.log(`Answer changed for ${formInputId}:`, stringAnswer);
+        const storageKey = rememberKeyMapRef.current[formInputId];
+        if (storageKey) {
+            saveRememberedValue(storageKey, stringAnswer);
+        }
         setUserAnswers(prevAnswers => ({
             ...prevAnswers,
-            [questionId]: answer
+            [formInputId]: stringAnswer
         }));
+
+        // Validate immediately after change
+        if (quiz) {
+            const currentPages = quiz.getPages();
+            const currentPage = currentPages[currentPageIndex];
+            const formInput = currentPage.getElements().find(el => el.id === formInputId);
+            if (formInput && formInput.category === 'question') {
+                const errorMessage = runValidation(formInput, stringAnswer);
+                setValidationErrors(prevErrors => ({
+                    ...prevErrors,
+                    [formInputId]: errorMessage
+                }));
+            }
+        }
     };
 
     const validatePage = () => {
-        logger.log('Validating current page:', currentPageIndex);
-        if (!quizData || quizData.length === 0) return true; // No quiz data, nothing to validate
+        if (!quiz) return true;
 
-        const currentPageElements = quizData[currentPageIndex].elements;
-        let isValid = true;
-        // newErrors is no longer used, removed it.
-        // const newErrors = {}; // To store validation errors
+        const currentPages = quiz.getPages();
+        const currentPage = currentPages[currentPageIndex];
+        let pageIsValid = true;
+        const newValidationErrors = {};
 
-        for (const item of currentPageElements) {
-            if (item.type === 'question') { // Only validate actual questions
-                const questionId = item.element_id;
-                const answer = userAnswers[questionId];
-                const isRequired = item.isRequired;
-                const validationRegex = item.validationRegex;
-
-                if (isRequired && (!answer || answer.length === 0)) {
-                    isValid = false;
-                    logger.warn(`Validation failed for ${questionId}: field is required.`);
-                    // newErrors[questionId] = item.errorMessage || 'This field is required.';
-                } else if (validationRegex && answer) {
-                    try {
-                        const regex = new RegExp(validationRegex);
-                        if (!regex.test(answer)) {
-                            isValid = false;
-                            logger.warn(`Validation failed for ${questionId}: invalid format. Answer: ${answer}, Regex: ${validationRegex}`);
-                            // newErrors[questionId] = item.errorMessage || 'Invalid input format.';
-                        }
-                    } catch (e) {
-                        logger.error('Invalid regex:', validationRegex, e);
-                    }
+        currentPage.getElements().forEach(formInput => {
+            if (formInput.category === 'question') {
+                const value = userAnswers[formInput.id];
+                const errorMessage = runValidation(formInput, value);
+                if (errorMessage) {
+                    newValidationErrors[formInput.id] = errorMessage;
+                    pageIsValid = false;
                 }
             }
-        }
-        
-        // This part needs to be handled by individual QuestionElement components for visual feedback
-        // For now, we'll just return overall validity.
-        if (!isValid) {
-            alert('Please fill out all required fields and correct any invalid inputs on this page.');
-            logger.warn('Page validation failed. User alerted.');
-        } else {
-            logger.log('Page validation successful.');
-        }
-        return isValid;
+        });
+
+        setValidationErrors(newValidationErrors);
+        return pageIsValid;
     };
 
     const handleNextPage = () => {
@@ -117,11 +170,11 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
 
         try {
             logger.log('Submitting quiz with answers:', userAnswers);
-            const result = await submitQuiz(individualQuizSheetId, currentResponseSheetId, userAnswers);
+            const result = await submitQuiz(individualQuizSheetId, quiz.responseSheetId, userAnswers);
             if (result.success) {
                 alert('Quiz submitted successfully!');
                 logger.log('Quiz submitted successfully.', result);
-                onBack(); // Go back to quiz selection
+                onBack();
             } else {
                 alert(`Error submitting quiz: ${result.message}`);
                 logger.error('Error submitting quiz:', result.message);
@@ -142,26 +195,28 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
         return <div className="error-message">{error}</div>;
     }
 
-    if (!quizData || quizData.length === 0) {
+    if (!quiz) {
         logger.warn('QuizDisplay: No quiz data available.');
         return <div className="no-quiz-data">No quiz data available.</div>;
     }
 
-    const currentPage = quizData[currentPageIndex];
-    const isLastPage = currentPageIndex === quizData.length - 1;
+    const pages = quiz.getPages();
+    const currentPage = pages[currentPageIndex];
+    const isLastPage = currentPageIndex === pages.length - 1;
 
-    logger.log('QuizDisplay: Rendering page:', currentPage.page_id, 'Index:', currentPageIndex);
+    logger.log('QuizDisplay: Rendering page:', currentPage.id, 'Index:', currentPageIndex);
 
     return (
-        <div id="quiz-display" className="quiz-display">
+        <div id="quiz-display" className="quiz-display" dir={quiz.direction || 'ltr'}>
             <button onClick={onBack} className="back-button">← Back to Quiz Selection</button>
-            <h2 id="quiz-title">{currentQuizTitle}</h2>
-            <p id="quiz-description">{currentQuizDescription}</p>
+            <h2 id="quiz-title">{quiz.title}</h2>
+            <p id="quiz-description">{quiz.description}</p>
 
             <Page
                 page={currentPage}
                 onAnswerChange={handleAnswerChange}
                 userAnswers={userAnswers}
+                validationErrors={validationErrors} // Pass down validation errors
             />
 
             <div className="quiz-navigation">
@@ -177,6 +232,30 @@ function QuizDisplay({ individualQuizSheetId, onBack }) {
             </div>
         </div>
     );
+}
+
+function buildRememberStorageKey(rememberKey, quizSheetId, formInputId) {
+    if (rememberKey && String(rememberKey).trim()) {
+        return `quiz:remember:${String(rememberKey).trim()}`;
+    }
+    return `quiz:remember:${quizSheetId || 'default'}:${formInputId}`;
+}
+
+function getRememberedValue(storageKey) {
+    try {
+        return window.localStorage.getItem(storageKey);
+    } catch (error) {
+        logger.warn('Failed to read remembered answer:', error.message);
+        return null;
+    }
+}
+
+function saveRememberedValue(storageKey, value) {
+    try {
+        window.localStorage.setItem(storageKey, value);
+    } catch (error) {
+        logger.warn('Failed to store remembered answer:', error.message);
+    }
 }
 
 export default QuizDisplay;

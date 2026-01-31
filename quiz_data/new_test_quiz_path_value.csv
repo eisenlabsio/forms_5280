@@ -1,0 +1,9 @@
+path,value
+global.quiz_title,My New Test Quiz
+global.quiz_description,A simple quiz for testing.
+global.response_sheet_id,dummy_response_id
+global.page1_page_def.page_id,page1
+global.page1_page_def.page_title,Page 1
+question.page1.Q1.question,What is 1+1?
+question.page1.Q1.question_type,text
+question.page1.Q1.question_is_required,TRUE
