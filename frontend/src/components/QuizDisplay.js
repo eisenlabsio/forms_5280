@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { fetchQuiz } from '../services/googleSheets';
 import { submitQuiz } from '../services/gasWebApp';
 import Page from './Page';
@@ -23,6 +23,24 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
     const [submissionComplete, setSubmissionComplete] = useState(false);
     const [popupState, setPopupState] = useState({ open: false, message: '', type: 'info', action: '' });
     const rememberKeyMapRef = useRef({});
+    const isTestEnabled = !!quiz?.testEnabled;
+    const visiblePages = useMemo(() => getVisiblePages(quiz, userAnswers), [quiz, userAnswers]);
+    const pages = useMemo(() => {
+        if (!quiz) {
+            return [];
+        }
+        if (!isTestEnabled) {
+            return visiblePages;
+        }
+        return [
+            ...visiblePages,
+            {
+                id: '__test__',
+                title: quiz.testTitle || t('test_page_title', 'סיכום מבחן'),
+                description: quiz.testDescription || '',
+            },
+        ];
+    }, [quiz, isTestEnabled, visiblePages, t]);
 
     useEffect(() => {
         const loadQuiz = async () => {
@@ -54,6 +72,13 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
 
         loadQuiz();
     }, [individualQuizSheetId]);
+
+    useEffect(() => {
+        if (!pages.length) {
+            return;
+        }
+        setCurrentPageIndex(prevIndex => Math.min(prevIndex, pages.length - 1));
+    }, [pages.length]);
 
     useEffect(() => {
         if (!quiz) {
@@ -118,7 +143,8 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
                 setTestResults(computedSummary.results || {});
                 setTestComplete(true);
             }
-            const totalPages = quiz.getPages().length + (quiz.testEnabled ? 1 : 0);
+            const visibleForCompletion = getVisiblePages(quiz, mergedAnswersForScore);
+            const totalPages = visibleForCompletion.length + (quiz.testEnabled ? 1 : 0);
             setCurrentPageIndex(Math.max(totalPages - 1, 0));
         }
     }, [quiz, individualQuizSheetId]);
@@ -171,10 +197,21 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
             saveRememberedValue(storageKey, stringAnswer);
         }
         if (quiz && quiz.testEnabled && !submissionComplete) {
-            setTestComplete(false);
-            setTestScore(null);
-            setTestResults({});
             setIsCalculating(false);
+            if (testComplete) {
+                setTestResults(prevResults => {
+                    if (!prevResults || !Object.prototype.hasOwnProperty.call(prevResults, formInputId)) {
+                        return prevResults;
+                    }
+                    return {
+                        ...prevResults,
+                        [formInputId]: null,
+                    };
+                });
+            } else {
+                setTestScore(null);
+                setTestResults({});
+            }
         }
         setUserAnswers(prevAnswers => ({
             ...prevAnswers,
@@ -183,8 +220,10 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
 
         // Validate immediately after change
         if (quiz) {
-            const currentPages = quiz.getPages();
-            const currentPage = currentPages[currentPageIndex];
+            const currentPage = pages[currentPageIndex];
+            if (!currentPage || currentPage.id === '__test__') {
+                return;
+            }
             const formInput = currentPage.getElements().find(el => el.id === formInputId);
             if (formInput && formInput.category === 'question') {
                 const errorMessage = runValidation(formInput, stringAnswer);
@@ -199,9 +238,8 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
     const validatePage = () => {
         if (!quiz) return true;
 
-        const currentPages = quiz.getPages();
-        const currentPage = currentPages[currentPageIndex];
-        if (!currentPage) {
+        const currentPage = pages[currentPageIndex];
+        if (!currentPage || currentPage.id === '__test__') {
             return true;
         }
         let pageIsValid = true;
@@ -225,7 +263,7 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
     const handleNextPage = () => {
         logger.log('Attempting to navigate to next page.');
         if (validatePage()) {
-            setCurrentPageIndex(prevIndex => prevIndex + 1);
+            setCurrentPageIndex(prevIndex => Math.min(prevIndex + 1, pages.length - 1));
             logger.log('Navigated to next page. Current page index:', currentPageIndex + 1);
         } else {
             logger.warn('Cannot navigate to next page: current page validation failed.');
@@ -234,7 +272,7 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
 
     const handlePrevPage = () => {
         logger.log('Navigating to previous page. Current page index:', currentPageIndex - 1);
-        setCurrentPageIndex(prevIndex => prevIndex - 1);
+        setCurrentPageIndex(prevIndex => Math.max(prevIndex - 1, 0));
     };
 
     const handleFinishTest = () => {
@@ -338,11 +376,11 @@ function QuizDisplay({ individualQuizSheetId, onBack, onQuizConfig, resetToken }
         return <div className="no-quiz-data">{t('no_quiz_data', 'אין נתוני טופס.')}</div>;
     }
 
-    const basePages = quiz.getPages();
-    const isTestEnabled = quiz.testEnabled;
-    const pages = isTestEnabled
-        ? [...basePages, { id: '__test__', title: quiz.testTitle || t('test_page_title', 'סיכום מבחן'), description: quiz.testDescription || '' }]
-        : basePages;
+    if (!pages.length) {
+        logger.warn('QuizDisplay: No visible pages available.');
+        return <div className="no-quiz-data">{t('no_visible_pages', 'אין עמודים להצגה.')}</div>;
+    }
+
     const currentPage = pages[currentPageIndex];
     const isLastPage = currentPageIndex === pages.length - 1;
     const isTestPage = isTestEnabled && currentPage && currentPage.id === '__test__';
@@ -656,11 +694,57 @@ function evaluateHiddenValue(code, context) {
     }
 }
 
+function getVisiblePages(quiz, answers) {
+    if (!quiz) {
+        return [];
+    }
+    return quiz.getPages().filter(page => isPageVisible(page, answers));
+}
+
+function isPageVisible(page, answers) {
+    const questionId = page.showIfQuestionId;
+    if (!questionId) {
+        return true;
+    }
+    const operator = page.showIfOperator || 'equals';
+    const expected = page.showIfValue;
+    const actual = answers ? answers[questionId] : undefined;
+    return evaluateCondition(actual, expected, operator);
+}
+
+function evaluateCondition(actual, expected, operator) {
+    const op = String(operator || 'equals').toLowerCase();
+    const actualNorm = normalizeAnswer(actual);
+    const expectedNorm = normalizeAnswer(expected);
+
+    if (op === 'equals') {
+        return actualNorm === expectedNorm;
+    }
+    if (op === 'not_equals') {
+        return actualNorm !== expectedNorm;
+    }
+    if (op === 'in') {
+        return splitAnswerList(expected).includes(actualNorm);
+    }
+    if (op === 'not_in') {
+        return !splitAnswerList(expected).includes(actualNorm);
+    }
+    if (op === 'has') {
+        const actualList = splitAnswerList(actual);
+        const expectedList = splitAnswerList(expected);
+        if (!expectedList.length) {
+            return false;
+        }
+        return expectedList.some(value => actualList.includes(value));
+    }
+    return actualNorm === expectedNorm;
+}
+
 function calculateQuizScore(quiz, answers) {
     let total = 0;
     let correct = 0;
     const results = {};
-    quiz.getPages().forEach(page => {
+    getVisiblePages(quiz, answers).forEach(page => {
         page.getElements().forEach(item => {
             if (item.category !== 'question' || item.inputContext !== 'question') {
                 return;

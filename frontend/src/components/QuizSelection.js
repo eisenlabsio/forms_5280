@@ -31,7 +31,7 @@ function QuizSelection({ onQuizSelect, onMasterConfig }) {
         logger.log('Master sheet ID from URL:', masterSheetId);
 
         if (!masterSheetId) {
-            setError(t('error_no_sheet_id', 'לא סופק מזהה גיליון (sheetId או s) בכתובת.'));
+            setError(t('error_no_sheet_id', 'פרמטר s הוא חובה.'));
             logger.error('No sheetId or s parameter found in URL.');
             setLoading(false);
             return;

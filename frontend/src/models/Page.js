@@ -3,6 +3,9 @@ export class Page {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.showIfQuestionId = '';
+        this.showIfOperator = '';
+        this.showIfValue = '';
         this.elements = {};
     }
 

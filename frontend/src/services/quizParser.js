@@ -83,6 +83,15 @@ function buildQuizFromObject(quizObject) {
         console.log('Processing pageId:', pageId); // Debugging
         const pageDef = pageDefs[pageId];
         const page = new Page(pageDef.page_id, pageDef.page_title, pageDef.page_description);
+        if (pageDef.page_show_if_question_id) {
+            page.showIfQuestionId = pageDef.page_show_if_question_id;
+        }
+        if (pageDef.page_show_if_operator) {
+            page.showIfOperator = pageDef.page_show_if_operator;
+        }
+        if (pageDef.page_show_if_value !== undefined) {
+            page.showIfValue = pageDef.page_show_if_value;
+        }
         quiz.addPage(page);
     }
     

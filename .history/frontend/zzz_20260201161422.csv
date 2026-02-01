@@ -1,0 +1,93 @@
+path,value
+  global.quiz_direction,rtl
+  global.quiz_title,טופס 13 אקדח
+  global.quiz_description,
+  global.response_sheet_id,
+  global.quiz_page_def.page_id,gate
+  global.quiz_page_def.page_title,טופס 13 אקדח
+
+  question.gate.Q1.question,האם אתה נושא אקדח?
+  question.gate.Q1.question_id,carry_gun
+  question.gate.Q1.question_type,choice
+  question.gate.Q1.question_option,כן
+  question.gate.Q1.question_option,לא
+  question.gate.Q1.input_context,question
+  question.gate.Q1.question_is_required,TRUE
+
+  question.details_page_def.page_id,details
+  question.details_page_def.page_title,פרטי האקדח
+  question.details_page_def.page_show_if_question_id,carry_gun
+  question.details_page_def.page_show_if_operator,equals
+  question.details_page_def.page_show_if_value,כן
+
+  question.details.Q1.question,מספר אישי
+  question.details.Q1.question_id,q_1438669894
+  question.details.Q1.question_type,text
+  question.details.Q1.input_context,question
+  question.details.Q1.question_is_required,TRUE
+
+  question.details.Q2.question,שם פרטי
+  question.details.Q2.question_id,q_1557365759
+  question.details.Q2.question_type,text
+  question.details.Q2.input_context,question
+  question.details.Q2.question_is_required,TRUE
+
+  question.details.Q3.question,שם משפחה
+  question.details.Q3.question_id,q_479239
+  question.details.Q3.question_type,text
+  question.details.Q3.input_context,question
+  question.details.Q3.question_is_required,TRUE
+
+  question.details.Q4.question,סוג האקדח
+  question.details.Q4.question_id,q_266081457
+  question.details.Q4.question_type,text
+  question.details.Q4.input_context,question
+  question.details.Q4.question_is_required,TRUE
+
+  question.details.Q5.question,תוצרת
+  question.details.Q5.question_id,q_1372526172
+  question.details.Q5.question_type,text
+  question.details.Q5.input_context,question
+  question.details.Q5.question_is_required,TRUE
+
+  question.details.Q6.question,מספר סידורי
+  question.details.Q6.question_id,q_1160207898
+  question.details.Q6.question_type,text
+  question.details.Q6.input_context,question
+  question.details.Q6.question_is_required,TRUE
+
+  question.details.Q7.question,תוקף הרישיון כפי שמופיע ברישיון משרד הפנים
+  question.details.Q7.question_id,q_625502324
+  question.details.Q7.question_type,text
+  question.details.Q7.input_context,question
+  question.details.Q7.question_is_required,TRUE
+
+  question.details.Q8.question,סיבת הבקשה
+  question.details.Q8.question_id,q_754191228
+  question.details.Q8.question_type,long_text
+  question.details.Q8.input_context,question
+  question.details.Q8.question_is_required,TRUE
+
+  question.details.Q9.question,אני מצהיר בזאת כי:
+  question.details.Q9.question_id,q_337145271
+  question.details.Q9.question_type,dropdown
+  question.details.Q9.input_context,question
+  question.details.Q9.question_option,אני עומד בדרישות החוק של משרד הפנים ורישיון האקדח שבראשותי בתוקף.
+  question.details.Q9.question_option,"ידוע לי כי איני רשאי להוציא את האקדח מהנרתיק לשום צורך (ניקוי, הדגמה וכו')
+  למעט לצורך הגנה עצמית בעת אירוע."
+  question.details.Q9.question_option,ידוע לי כי איני רשאי להשאיר את האקדח ללא השגחה.
+  question.details.Q9.question_option,ידועה לי חובת עדכון מפקד היחידה על כול שינוי בסטאטוס תוקף הרישיון בהתאם לחוק
+  האזרחי.
+  question.details.Q9.question_is_required,TRUE
+
+  question.details.Q10.question,תאריך
+  question.details.Q10.question_id,q_627817735
+  question.details.Q10.question_type,time
+  question.details.Q10.input_context,question
+  question.details.Q10.question_is_required,TRUE
+
+  question.details.Q11.question,חתימת החייל
+  question.details.Q11.question_id,q_256252170
+  question.details.Q11.question_type,text
+  question.details.Q11.input_context,question
+  question.details.Q11.question_is_required,TRUE
