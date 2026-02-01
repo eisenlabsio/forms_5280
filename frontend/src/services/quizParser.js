@@ -14,7 +14,9 @@ import { PhoneFormInput } from '../models/PhoneFormInput';
 import { SignatureFormInput } from '../models/SignatureFormInput';
 import { InfoTextFormInput } from '../models/InfoTextFormInput';
 import { DisplayHtmlFormInput } from '../models/DisplayHtmlFormInput';
+import { HiddenFormInput } from '../models/HiddenFormInput';
 import { parsePathValueSheet } from './sheetParser'; // Import from sheetParser.js
+import { extractFontScaleConfig } from '../utils/fontScale';
 
 const formInputSubTypeMap = {
     'text': TextFormInput,
@@ -30,6 +32,7 @@ const formInputSubTypeMap = {
     'signature': SignatureFormInput,
     'info_text': InfoTextFormInput,
     'display_html': DisplayHtmlFormInput,
+    'hidden': HiddenFormInput,
 };
 
 function buildQuizFromObject(quizObject) {
@@ -41,6 +44,19 @@ function buildQuizFromObject(quizObject) {
     quiz.responseSheetId = quizObject.global?.response_sheet_id || '';
     const quizDirection = quizObject.global?.quiz_direction;
     quiz.direction = quizDirection === 'rtl' || quizDirection === 'ltr' ? quizDirection : 'ltr';
+    quiz.fontScaleConfig = extractFontScaleConfig(quizObject.global || {});
+    const testEnabledValue = quizObject.global?.quiz_test_enabled;
+    quiz.testEnabled = String(testEnabledValue || '').toUpperCase() === 'TRUE';
+    const minScoreValue = quizObject.global?.quiz_min_score;
+    quiz.minScore = minScoreValue !== undefined && minScoreValue !== null && String(minScoreValue).trim() !== ''
+        ? Number(minScoreValue)
+        : null;
+    quiz.testTitle = quizObject.global?.quiz_test_title || '';
+    quiz.testDescription = quizObject.global?.quiz_test_description || '';
+    const showIconsValue = quizObject.global?.quiz_test_show_icons;
+    quiz.testShowIcons = showIconsValue === undefined || showIconsValue === null || String(showIconsValue).trim() === ''
+        ? true
+        : String(showIconsValue).toUpperCase() === 'TRUE';
 
     const pageDefs = {};
     if (quizObject.global) {
@@ -88,6 +104,8 @@ function buildQuizFromObject(quizObject) {
                                 formInputInstance = new FormInputClass(formInputData.id || formInputKey, formInputData.text || formInputData.question);
                             } else if (formInputSubType === 'display_html') {
                                 formInputInstance = new FormInputClass(formInputData.id || formInputKey, formInputData.html || formInputData.text || '');
+                            } else if (formInputSubType === 'hidden') {
+                                formInputInstance = new FormInputClass(formInputData.question_id || formInputKey);
                             } else {
                                 formInputInstance = new FormInputClass(formInputData.question_id || formInputKey, formInputData.question, formInputData.question_is_required === 'TRUE');
                             }
@@ -104,18 +122,32 @@ function buildQuizFromObject(quizObject) {
                             if (formInputData.question_validation_regex) {
                                 formInputInstance.validationRegex = formInputData.question_validation_regex;
                             }
+                            if (formInputData.question_error_message) {
+                                formInputInstance.errorMessage = formInputData.question_error_message;
+                            }
                             if (formInputData.question_placeholder) {
                                 formInputInstance.placeholder = formInputData.question_placeholder;
                             }
-                            if (formInputData.question_remember_last) {
-                                formInputInstance.rememberLastAnswer = formInputData.question_remember_last === 'TRUE';
-                            }
+                            const rememberLastRaw = formInputData.question_remember_last;
+                            const rememberLastExplicit = rememberLastRaw !== undefined && rememberLastRaw !== null && String(rememberLastRaw).trim() !== '';
+                            const rememberLastValue = rememberLastExplicit ? String(rememberLastRaw).toUpperCase() === 'TRUE' : null;
+
                             if (formInputData.question_remember_key) {
-                                formInputInstance.rememberLastAnswer = true;
                                 formInputInstance.rememberKey = formInputData.question_remember_key;
+                                formInputInstance.rememberLastAnswer = rememberLastValue !== null ? rememberLastValue : true;
+                            } else if (rememberLastExplicit) {
+                                formInputInstance.rememberLastAnswer = rememberLastValue;
+                            } else if (formInputInstance.category === 'question') {
+                                formInputInstance.rememberLastAnswer = true;
                             }
                             if (formInputData.question_default_answer) {
                                 formInputInstance.defaultAnswer = formInputData.question_default_answer;
+                            }
+                            if (formInputData.question_value) {
+                                formInputInstance.hiddenValue = formInputData.question_value;
+                            }
+                            if (formInputData.question_value_js) {
+                                formInputInstance.hiddenValueJs = formInputData.question_value_js;
                             }
                             if ((formInputSubType === 'multi_choice' || formInputSubType === 'choice' || formInputSubType === 'dropdown') && formInputData.question_option) {
                                 const options = Array.isArray(formInputData.question_option) ? formInputData.question_option : [formInputData.question_option];

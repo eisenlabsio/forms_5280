@@ -4,6 +4,12 @@ export class Quiz {
         this.description = '';
         this.responseSheetId = '';
         this.direction = 'ltr';
+        this.fontScaleConfig = null;
+        this.testEnabled = false;
+        this.minScore = null;
+        this.testTitle = '';
+        this.testDescription = '';
+        this.testShowIcons = true;
         this.pages = {};
     }
 

@@ -53,7 +53,7 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
 
     if (!gasWebAppLink || gasWebAppLink === 'YOUR_GAS_WEB_APP_URL_HERE') {
         logger.error('GAS Web App URL is not configured. Please set REACT_APP_GAS_WEB_APP_URL in your .env file.');
-        throw new Error('GAS Web App URL is not configured. Please set REACT_APP_GAS_WEB_APP_URL in your .env file.');
+        throw new Error('כתובת ה־GAS לא מוגדרת. יש להגדיר REACT_APP_GAS_WEB_APP_URL בקובץ .env.');
     }
 
     const metadata = await collectMetadata();
@@ -83,7 +83,7 @@ async function submitQuiz(individualQuizSheetId, responseSheetId, quizAnswers) {
         return result;
     } catch (error) {
         logger.error('Error submitting quiz:', error);
-        throw new Error('Network error during quiz submission.');
+        throw new Error('שגיאת רשת במהלך שליחת הטופס.');
     }
 }
 

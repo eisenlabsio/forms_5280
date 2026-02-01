@@ -2,7 +2,7 @@ import React from 'react';
 import QuizElementMap from './QuizElementMap';
 import logger from '../utils/logger';
 
-function Page({ page, onAnswerChange, userAnswers, validationErrors }) { // Receive validationErrors
+function Page({ page, onAnswerChange, userAnswers, validationErrors, testResults, showTestIcons }) { // Receive validationErrors
     let questionNumberCounter = 0;
 
     logger.log('Page component received page prop:', page);
@@ -27,10 +27,10 @@ function Page({ page, onAnswerChange, userAnswers, validationErrors }) { // Rece
                     }
 
                     const elementProps = {
-                        key: item.id || index,
                         element: item, // Pass the FormInput instance as 'element'
                         localError: validationErrors[item.id], // Pass down specific error
                     };
+                    const elementKey = item.id || index;
 
                     if (item.category === 'question') {
                         questionNumberCounter++;
@@ -41,19 +41,30 @@ function Page({ page, onAnswerChange, userAnswers, validationErrors }) { // Rece
                         
                         const questionLabel = `${questionNumberCounter}. ${item.text}`;
                         const elementId = item.elementId || item.id;
+                        const status = showTestIcons && testResults && Object.prototype.hasOwnProperty.call(testResults, item.id)
+                            ? testResults[item.id]
+                            : null;
 
                         return (
-                            <div key={item.id || index} className="question-block" data-element-id={elementId}>
-                                <p className="question-text">{questionLabel}</p>
+                            <div key={elementKey} className="question-block" data-element-id={elementId}>
+                                <p className="question-text">
+                                    <span className="question-text-label">{questionLabel}</span>
+                                    {status === true && (
+                                        <span className="question-status-icon correct" aria-label="נכון">✓</span>
+                                    )}
+                                    {status === false && (
+                                        <span className="question-status-icon incorrect" aria-label="לא נכון">✕</span>
+                                    )}
+                                </p>
                                 <div className="input-area">
-                                    <ElementComponent {...elementProps} />
+                                    <ElementComponent key={elementKey} {...elementProps} />
                                 </div>
                             </div>
                         );
                     }
 
                     // For non-question elements, simply return the component
-                    return <ElementComponent {...elementProps} />;
+                    return <ElementComponent key={elementKey} {...elementProps} />;
                 })}
             </div>
         </div>

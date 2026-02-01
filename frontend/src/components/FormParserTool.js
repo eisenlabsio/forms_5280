@@ -34,24 +34,24 @@ function FormParserTool() {
         try {
             const parsed = parseGoogleFormHtmlToConfig(htmlInput, {
                 personalInfoCount: Number(personalInfoCount) || 0,
-                personalInfoPageTitle: personalInfoTitle || 'Personal Info',
+                personalInfoPageTitle: personalInfoTitle || 'פרטים אישיים',
                 responseSheetId: responseSheetId.trim()
             });
             setResult(parsed);
             setError('');
         } catch (err) {
-            setError(err.message || 'Failed to parse the HTML.');
+            setError(err.message || 'נכשלה המרת ה‑HTML.');
             setResult(null);
         }
     };
 
     return (
         <div className="form-parser-tool">
-            <h2>Google Form HTML → Quiz Config</h2>
-            <p>Paste the HTML from the form edit page and generate the config.</p>
+            <h2>המרת HTML של טופס → קונפיג טופס</h2>
+            <p>הדבק את ה‑HTML מעמוד העריכה של הטופס כדי ליצור קונפיג.</p>
 
             <label className="form-parser-label">
-                Personal info questions count
+                מספר שאלות פרטים אישיים
                 <input
                     type="number"
                     min="0"
@@ -61,7 +61,7 @@ function FormParserTool() {
             </label>
 
             <label className="form-parser-label">
-                Personal info page title
+                כותרת עמוד פרטים אישיים
                 <input
                     type="text"
                     value={personalInfoTitle}
@@ -70,26 +70,26 @@ function FormParserTool() {
             </label>
 
             <label className="form-parser-label">
-                Response sheet ID
+                מזהה גיליון תגובות
                 <input
                     type="text"
                     value={responseSheetId}
                     onChange={event => setResponseSheetId(event.target.value)}
-                    placeholder="Optional Google Sheet ID for responses"
+                    placeholder="מזהה גיליון תגובות (אופציונלי)"
                 />
             </label>
 
             <label className="form-parser-label">
-                Form HTML
+                HTML של הטופס
                 <textarea
                     rows="10"
                     value={htmlInput}
                     onChange={event => setHtmlInput(event.target.value)}
-                    placeholder="Paste the HTML source from the form edit page here..."
+                    placeholder="הדבק כאן את קוד ה‑HTML מעמוד העריכה..."
                 />
             </label>
 
-            <button type="button" className="submit-button" onClick={handleParse}>Parse</button>
+            <button type="button" className="submit-button" onClick={handleParse}>המר</button>
 
             {error && <div className="error-message">{error}</div>}
 
@@ -101,24 +101,24 @@ function FormParserTool() {
                             className="submit-button"
                             onClick={() => triggerDownload(result.csv, buildSafeFilename(result.title, 'quiz_config'))}
                         >
-                            Download Quiz CSV
+                            הורד CSV לטופס
                         </button>
                         <button
                             type="button"
                             className="submit-button"
                             onClick={() => triggerDownload(result.responseHeaderCsv, buildSafeFilename(result.title, 'responses_header'))}
                         >
-                            Download Response Headers CSV
+                            הורד CSV לכותרות תגובות
                         </button>
                     </div>
 
-                    <h3>Response Sheet Headers</h3>
+                    <h3>כותרות גיליון תגובות</h3>
                     <pre className="form-parser-pre">{result.responseHeaderCsv}</pre>
 
-                    <h3>JSON Output</h3>
+                    <h3>פלט JSON</h3>
                     <pre className="form-parser-pre">{JSON.stringify(result.configObject, null, 2)}</pre>
 
-                    <h3>CSV Output</h3>
+                    <h3>פלט CSV</h3>
                     <pre className="form-parser-pre">{result.csv}</pre>
                 </div>
             )}

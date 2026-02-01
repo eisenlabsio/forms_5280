@@ -11,10 +11,12 @@ import DateTimeFormInput from './DateTimeFormInput';
 import PhoneFormInput from './PhoneFormInput';
 import InfoTextFormInput from './InfoTextFormInput';
 import DisplayHtmlFormInput from './DisplayHtmlFormInput';
+import HiddenFormInput from './HiddenFormInput';
 
 const QuizElementMap = {
     info_text: InfoTextFormInput,
     display_html: DisplayHtmlFormInput,
+    hidden: HiddenFormInput,
     text: TextFormInput,
     long_text: LongTextFormInput,
     number: NumberFormInput,

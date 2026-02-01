@@ -1,7 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './SignatureQuestion.css'; // We'll create this CSS file later
+import { useQuiz } from '../context/QuizContext';
 
 const SignatureFormInput = ({ question, onAnswerChange, currentAnswer, localError }) => {
+  const { contentData } = useQuiz();
+  const t = (key, fallback) => contentData[key] || fallback;
   const [modalOpen, setModalOpen] = useState(false);
   const [signatureSvg, setSignatureSvg] = useState(currentAnswer || '');
   const [strokes, setStrokes] = useState([]);
@@ -139,24 +142,24 @@ const SignatureFormInput = ({ question, onAnswerChange, currentAnswer, localErro
       <p className="question-text">{question.text}</p>
       {signatureSvg ? (
         <div className="signature-preview">
-          <p>Saved Signature:</p>
+          <p>{t('signature_saved', 'חתימה נשמרה:')}</p>
           {signatureSvg.startsWith('data:image/png') ? (
-            <img src={signatureSvg} alt="Signature Preview" className="signature-img-preview" />
+            <img src={signatureSvg} alt={t('signature_preview_alt', 'תצוגת חתימה')} className="signature-img-preview" />
           ) : (
             // If it's an SVG string, render it directly (for future SVG conversion)
             <div dangerouslySetInnerHTML={{ __html: signatureSvg }} className="signature-svg-preview" />
           )}
-          <button onClick={openModal} className="edit-signature-button">Edit Signature</button>
+          <button onClick={openModal} className="edit-signature-button">{t('signature_edit', 'עריכת חתימה')}</button>
         </div>
       ) : (
-        <button onClick={openModal} className="add-signature-button">Add Signature</button>
+        <button onClick={openModal} className="add-signature-button">{t('signature_add', 'הוספת חתימה')}</button>
       )}
       {localError && <div className="error-message" style={{ color: 'red' }}>{localError}</div>} {/* Display error */}
 
       {modalOpen && (
         <div className="signature-modal-overlay">
           <div className="signature-modal-content">
-            <h3>Draw your Signature</h3>
+            <h3>{t('signature_draw_title', 'חתום כאן')}</h3>
             <canvas
               ref={canvasRef}
               width={400} // Fixed width for modal canvas
@@ -172,9 +175,9 @@ const SignatureFormInput = ({ question, onAnswerChange, currentAnswer, localErro
               onTouchCancel={(e) => { e.preventDefault(); endDrawing(e); }}
             ></canvas>
             <div className="modal-actions">
-              <button onClick={clearCanvas} className="clear-button">Clear</button>
-              <button onClick={saveSignature} className="save-button">Save</button>
-              <button onClick={closeModal} className="cancel-button">Cancel</button>
+              <button onClick={clearCanvas} className="clear-button">{t('clear_button', 'נקה')}</button>
+              <button onClick={saveSignature} className="save-button">{t('save_button', 'שמור')}</button>
+              <button onClick={closeModal} className="cancel-button">{t('cancel_button', 'ביטול')}</button>
             </div>
           </div>
         </div>

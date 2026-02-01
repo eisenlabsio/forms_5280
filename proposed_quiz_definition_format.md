@@ -26,13 +26,15 @@ We will use the existing `page`, `element_id`, `type`, `value` columns, but the 
     *   **Content Elements (Questions, sections, info text):**
         *   `question`: Marks the beginning of a new question block. `value` = The actual question text.
         *   `question_id`: The unique identifier that will be used as the key for this question's answer when sending data to the backend. If not provided for a question, `element_id` will be used as the `question_id`. `value` = The actual `questionId` string.
-        *   `question_type`: Specifies the type of input field for the preceding `question`. `value` = `text`, `long_text`, `number`, `date`, `signature`, `choice`, `multi_choice`, `dropdown`.
+        *   `question_type`: Specifies the type of input field for the preceding `question`. `value` = `text`, `long_text`, `number`, `date`, `signature`, `choice`, `multi_choice`, `dropdown`, `hidden`.
         *   `question_option`: For `choice` and `multi_choice` question types, each option will be a separate row with this `type`. `value` = The text of the option.
         *   `question_hint`: Optional hint text for the question. `value` = The hint text.
         *   `question_placeholder`: Optional placeholder text for inputs that support it (text, long_text, number, phone, dropdown, etc.). `value` = The placeholder text.
         *   `question_remember_last`: Optional boolean flag to remember the last answer in local storage. `value` = `TRUE` or `FALSE`.
         *   `question_remember_key`: Optional key name to reuse a saved answer across quizzes (e.g., `first_name`, `phone`). Setting this enables remembering for the field.
         *   `question_default_answer`: Optional default value used when no remembered answer exists. `value` = The default answer text.
+        *   `question_value`: Optional value for hidden inputs (sent with the response, not shown).
+        *   `question_value_js`: Optional JavaScript expression or function body for hidden inputs. Must return a string.
         *   `question_error_message`: Optional custom error message for client-side validation. `value` = The error message.
         *   `question_right_answer`: The correct answer for the question. `value` = The correct answer.
         *   `question_validation_regex`: A regular expression string for client-side input validation. `value` = The regex string.

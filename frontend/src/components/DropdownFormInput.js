@@ -1,8 +1,11 @@
 import React from 'react';
+import { useQuiz } from '../context/QuizContext';
 
 function DropdownFormInput({ question, onAnswerChange, currentAnswer, inputName, isRequired, localError }) {
+    const { contentData } = useQuiz();
+    const t = (key, fallback) => contentData[key] || fallback;
     const { options } = question;
-    const placeholder = question.placeholder ?? 'Select...';
+    const placeholder = question.placeholder ?? t('dropdown_placeholder', 'בחר...');
 
     const handleInputChange = (e) => {
         onAnswerChange(question.id, e.target.value);

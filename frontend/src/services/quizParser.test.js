@@ -7,6 +7,7 @@ import { MultiChoiceFormInput } from '../models/MultiChoiceFormInput';
 import { DropdownFormInput } from '../models/DropdownFormInput';
 import { InfoTextFormInput } from '../models/InfoTextFormInput';
 import { DisplayHtmlFormInput } from '../models/DisplayHtmlFormInput';
+import { HiddenFormInput } from '../models/HiddenFormInput';
 import { DateTimeFormInput } from '../models/DateTimeFormInput';
 
 
@@ -16,6 +17,11 @@ describe('quizParser', () => {
       { path: 'global.quiz_title', value: 'Test Quiz' },
       { path: 'global.quiz_description', value: 'This is a test quiz' },
       { path: 'global.quiz_direction', value: 'rtl' },
+      { path: 'global.quiz_test_enabled', value: 'TRUE' },
+      { path: 'global.quiz_min_score', value: '80' },
+      { path: 'global.quiz_test_title', value: 'Test Summary' },
+      { path: 'global.quiz_test_description', value: 'Review your score before submitting.' },
+      { path: 'global.quiz_test_show_icons', value: 'FALSE' },
       { path: 'global.response_sheet_id', value: 'response123' },
       { path: 'global.welcome_page_def.page_id', value: 'welcome' },
       { path: 'global.welcome_page_def.page_title', value: 'Welcome Page' },
@@ -31,6 +37,9 @@ describe('quizParser', () => {
       { path: 'question.welcome.Q3.id', value: 'html_block_1' },
       { path: 'question.welcome.Q3.html', value: '<div><strong>Notice:</strong> Read carefully.</div>' },
       { path: 'question.welcome.Q3.type', value: 'display_html' },
+      { path: 'question.welcome.Q4.question_id', value: 'unit' },
+      { path: 'question.welcome.Q4.question_type', value: 'hidden' },
+      { path: 'question.welcome.Q4.question_value', value: 'פלוגה ב' },
 
       { path: 'question.quiz_page_def.page_id', value: 'quiz' },
       { path: 'question.quiz_page_def.page_title', value: 'Quiz Questions' },
@@ -70,6 +79,11 @@ describe('quizParser', () => {
     expect(quiz.description).toBe('This is a test quiz');
     expect(quiz.responseSheetId).toBe('response123');
     expect(quiz.direction).toBe('rtl');
+    expect(quiz.testEnabled).toBe(true);
+    expect(quiz.minScore).toBe(80);
+    expect(quiz.testTitle).toBe('Test Summary');
+    expect(quiz.testDescription).toBe('Review your score before submitting.');
+    expect(quiz.testShowIcons).toBe(false);
 
     const pages = quiz.getPages();
     expect(pages).toHaveLength(2);
@@ -79,7 +93,7 @@ describe('quizParser', () => {
     expect(welcomePage).toBeInstanceOf(Page);
     expect(welcomePage.title).toBe('Welcome Page');
     expect(welcomePage.description).toBe('Welcome to the quiz!');
-    expect(welcomePage.getElements()).toHaveLength(3);
+    expect(welcomePage.getElements()).toHaveLength(4);
 
     const nameQuestion = welcomePage.getElements().find(e => e.id === 'name_q');
     expect(nameQuestion).toBeInstanceOf(TextFormInput);
@@ -101,6 +115,11 @@ describe('quizParser', () => {
     expect(htmlBlock.html).toBe('<div><strong>Notice:</strong> Read carefully.</div>');
     expect(htmlBlock.category).toBe('display_html');
     expect(htmlBlock.subType).toBe('display_html');
+
+    const hiddenField = welcomePage.getElements().find(e => e.id === 'unit');
+    expect(hiddenField).toBeInstanceOf(HiddenFormInput);
+    expect(hiddenField.hiddenValue).toBe('פלוגה ב');
+    expect(hiddenField.subType).toBe('hidden');
 
     // Test Quiz Page
     const quizPage = pages.find(p => p.id === 'quiz');

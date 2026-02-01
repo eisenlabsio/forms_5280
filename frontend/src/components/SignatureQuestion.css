@@ -1,66 +1,72 @@
 .signature-question-container {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background-color: var(--surface);
+    box-shadow: var(--shadow-sm);
 }
 
-.question-text {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #333;
+.signature-question-container .question-text {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-weight: 600;
 }
 
 .add-signature-button,
 .edit-signature-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, color 160ms ease;
 }
 
 .add-signature-button:hover,
 .edit-signature-button:hover {
-    background-color: #0056b3;
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    box-shadow: 0 8px 16px rgba(15, 118, 110, 0.18);
+    transform: translateY(-1px);
 }
 
 .signature-preview {
-    margin-top: 10px;
-    border: 1px dashed #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
+    margin-top: 12px;
+    border: 1px dashed var(--border-strong);
+    padding: 12px;
+    border-radius: 12px;
+    background-color: var(--surface-muted);
     display: flex;
     flex-direction: column;
+    gap: 10px;
     align-items: flex-start;
 }
 
 .signature-preview p {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
+    margin: 0;
+    font-weight: 600;
+    color: var(--muted);
 }
 
-.signature-img-preview, .signature-svg-preview {
+.signature-img-preview,
+.signature-svg-preview {
     max-width: 100%;
     height: auto;
-    border: 1px solid #eee;
-    background-color: #f0f0f0;
-    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    background-color: #ffffff;
+    border-radius: 8px;
 }
-/* Ensure SVG content respects its viewbox or defined dimensions */
+
 .signature-svg-preview svg {
   max-width: 100%;
   height: auto;
-  display: block; /* Remove extra space below inline elements */
+  display: block;
 }
-
 
 .signature-modal-overlay {
     position: fixed;
@@ -68,86 +74,88 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .signature-modal-content {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--surface);
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
     text-align: center;
-    max-width: 90%;
-    width: 500px;
+    max-width: 520px;
+    width: 100%;
 }
 
 .signature-modal-content h3 {
     margin-top: 0;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 18px;
+    color: var(--text);
 }
 
 .signature-canvas {
-    border: 1px solid #000;
-    background-color: #fff;
+    border: 1px solid var(--border-strong);
+    background-color: #ffffff;
     cursor: crosshair;
-    touch-action: none; /* Prevent scrolling on touch devices */
-    width: 100%; /* Make canvas responsive within modal */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    touch-action: none;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .modal-actions {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-.clear-button {
-    background-color: #dc3545;
-    color: white;
-    padding: 10px 15px;
+.clear-button,
+.save-button,
+.cancel-button {
+    padding: 10px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 999px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.clear-button {
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
 .clear-button:hover {
-    background-color: #c82333;
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.25);
 }
 
 .save-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s;
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: #ffffff;
 }
 
 .save-button:hover {
-    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 20px rgba(15, 118, 110, 0.25);
 }
 
 .cancel-button {
-    background-color: #6c757d;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s;
+    background-color: var(--surface-strong);
+    color: var(--text);
 }
 
 .cancel-button:hover {
-    background-color: #5a6268;
+    background-color: var(--border);
+    transform: translateY(-1px);
 }

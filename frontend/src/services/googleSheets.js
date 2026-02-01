@@ -2,6 +2,7 @@ import Papa from 'papaparse';
 import logger from '../utils/logger';
 import { parseQuizSheet } from './quizParser';
 import { parsePathValueSheet } from './sheetParser';
+import { extractFontScaleConfig } from '../utils/fontScale';
 
 const GOOGLE_SHEETS_BASE_URL = 'https://docs.google.com/spreadsheets/d/';
 
@@ -76,13 +77,14 @@ async function fetchMasterSheet(sheetId) {
         const masterQuizTitle = parsedData.global?.quiz_title || 'Quiz Selection';
         const masterQuizDescription = parsedData.global?.quiz_description || 'Select a quiz from the list below.';
         const masterDirection = parsedData.global?.master_direction || parsedData.global?.quiz_direction || 'ltr';
+        const masterFontScaleConfig = extractFontScaleConfig(parsedData.global || {});
         const availableQuizzes = Object.values(parsedData.quizzes || {}); // Fix: Convert object to array
         
         logger.log('Parsed master quiz data:', { masterQuizTitle, masterQuizDescription, masterDirection, availableQuizzes });
-        return { masterQuizTitle, masterQuizDescription, masterDirection, availableQuizzes };
+        return { masterQuizTitle, masterQuizDescription, masterDirection, masterFontScaleConfig, availableQuizzes };
     } catch (error) {
         logger.error('Error fetching master sheet:', error);
-        return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', masterDirection: 'ltr', availableQuizzes: [] };
+        return { masterQuizTitle: 'Quiz Selection', masterQuizDescription: 'Select a quiz from the list below.', masterDirection: 'ltr', masterFontScaleConfig: null, availableQuizzes: [] };
     }
 }
 
