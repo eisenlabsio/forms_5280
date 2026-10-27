@@ -4,6 +4,9 @@ import './App.css'; // Using App.css now
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QuizProvider } from './context/QuizContext'; // Import QuizProvider
+import { clearStaleQuizData } from './utils/storageRetention';
+
+clearStaleQuizData();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
